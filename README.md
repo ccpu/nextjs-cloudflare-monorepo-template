@@ -71,9 +71,9 @@ git push origin main
 
 To deploy to a custom domain, you must set the `"routes"` value in your `apps/web/wrangler.jsonc` file. Example:
 
-```jsonc
+```json
 {
-  "routes": ["https://yourdomain.com/*"],
+  "routes": ["https://yourdomain.com/*"]
 }
 ```
 
