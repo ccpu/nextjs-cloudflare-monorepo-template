@@ -34,8 +34,9 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "page-visits",
-      "database_id": "43093e54-4034-4203-8edf-eaef6e9058f8"
+      // "database_name": "page-visits",
+      "database_name": "template-page-visits",
+      "database_id": "460bb2b7-f043-45c7-880f-680e1e6f1424"
     }
   ]
   /**
