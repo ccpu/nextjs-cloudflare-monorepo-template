@@ -1,0 +1,28 @@
+{
+  "name": "@internal/jest",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.15.0",
+  "author": "",
+  "license": "MIT",
+  "keywords": [],
+  "exports": "./index.js",
+  "scripts": {
+    "prepublishOnly": "pnpm run clean && pnpm run build",
+    "clean": "rimraf dist",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint",
+    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore"
+  },
+  "devDependencies": {
+    "@internal/eslint-config": "workspace:*",
+    "@internal/prettier-config": "workspace:*",
+    "@internal/tsconfig": "workspace:*",
+    "@pixpilot/dev-config": "catalog:",
+    "@types/jest": "catalog:",
+    "@types/node": "catalog:",
+    "jest": "catalog:",
+    "ts-jest": "catalog:"
+  },
+  "prettier": "@internal/prettier-config"
+}

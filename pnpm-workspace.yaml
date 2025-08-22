@@ -1,0 +1,37 @@
+packages:
+  - apps/*
+  - packages/*
+  - tooling/*
+
+catalog:
+  '@babel/core': ^7.28.3
+  '@pixpilot/dev-config': ^3.1.2
+  '@types/jest': ^30.0.0
+  '@types/node': ^22.17.2
+  '@types/react': ^19.1.10
+  '@types/react-dom': ^19.1.7
+  autoprefixer: ^10.4.21
+  eslint: ^9.33.0
+  jest: ^30.0.5
+  nativewind: ~4.1.23
+  postcss: ^8.5.6
+  prettier: ^3.6.2
+  react: 19.0.0
+  react-dom: 19.0.0
+  tailwindcss: 4.1.12
+  ts-jest: ^29.4.1
+  typescript: ^5.9.2
+  zod: ^4.0.17
+
+ignoredBuiltDependencies:
+  - unrs-resolver
+
+onlyBuiltDependencies:
+  - '@nestjs/core'
+  - '@pixpilot/dev-config'
+  - '@pixpilot/eslint-config'
+  - '@scarf/scarf'
+  - '@swc/core'
+  - core-js-pure
+  - esbuild
+  - sharp

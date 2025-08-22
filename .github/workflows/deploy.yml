@@ -1,0 +1,77 @@
+name: Deploy to Cloudflare Workers
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Choose an environment to deploy to
+        required: true
+        default: production
+        type: choice
+        options:
+          - production
+          - preview
+
+jobs:
+  # Job for pull requests - build and test only
+  build-and-test:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    name: Build and Test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup project
+        uses: ./.github/actions/setup-project
+
+      - name: Build application
+        run: pnpm turbo build --filter=web
+
+      - name: Run lint
+        run: pnpm turbo lint --filter=web
+
+  # Job for main branch pushes and manual triggers - build and deploy
+  deploy:
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    name: Deploy
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup project
+        uses: ./.github/actions/setup-project
+
+      - name: Build packages
+        run: pnpm turbo build --filter=web
+
+      - name: Build OpenNext.js for Cloudflare
+        run: cd apps/web && npx opennextjs-cloudflare build
+
+      - name: Deploy to Cloudflare Workers
+        id: deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+          workingDirectory: apps/web
+          packageManager: npm
+
+      - name: Print deployment information
+        if: success()
+        env:
+          DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
+        run: |
+          echo "✅ Deployment successful!"
+          echo "🌍 Deployment URL: $DEPLOYMENT_URL"
