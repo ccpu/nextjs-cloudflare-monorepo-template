@@ -15,8 +15,8 @@
     "typecheck": "tsc --noEmit",
     "with-env": "dotenv -e ../../.env --",
     "db:generate": "drizzle-kit generate",
-    "db:migrate": "drizzle-kit migrate",
-    "db:studio": "drizzle-kit studio"
+    "db:migrate:locale": "pnpm wrangler d1 migrations apply page-visits",
+    "db:migrate:remote": "pnpm wrangler d1 migrations apply page-visits --remote"
   },
   "dependencies": {
     "@cloudflare/workers-types": "^4.20250822.0",

@@ -91,6 +91,7 @@ This template includes **Drizzle ORM with Cloudflare D1** for privacy-friendly p
 ```bash
 cd apps/web
 pnpm wrangler d1 create page-visits
+pnpm wrangler d1 migrations apply page-visits --remote
 ```
 
 This returns a database ID. Copy it for the next step.
