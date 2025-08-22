@@ -1,16 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import type { PageVisit } from '../../lib';
 
-interface PageVisit {
-  id: number;
-  page_path: string;
-  visit_date: string;
-  visitor_country: string;
-  total_visits: number;
-  created_at: string;
-  updated_at: string;
-}
+import { useEffect, useState } from 'react';
 
 export default function Analytics() {
   const [visits, setVisits] = useState<PageVisit[]>([]);
