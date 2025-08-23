@@ -169,6 +169,22 @@ pnpm test           # Run tests
 
 This project uses **pnpm**. Always use `pnpm` instead of `npm` or `yarn`.
 
+## 🧪 Testing in the Monorepo
+
+- This monorepo uses [Vitest](https://vitest.dev/) for unit and integration tests.
+- Test configuration is shared via the internal package `@internal/vitest-config` (see `tooling/vitest`).
+- Each app or package can import config from `@internal/vitest-config/react` for React projects.
+- Run tests with:
+  ```sh
+  pnpm test
+  ```
+- Watch mode and UI are available:
+  ```sh
+  pnpm test:watch
+  pnpm test:ui
+  ```
+- All test scripts use `pnpm` as the package manager.
+
 ---
 
 Ready to build something amazing? Start by editing `apps/web/src/app/page.tsx` 🚀

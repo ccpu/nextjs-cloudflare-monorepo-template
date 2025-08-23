@@ -35,6 +35,8 @@
     "postinstall": "pnpm lint:ws",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage --config tooling/vitest/index.js",
     "prepare": "husky",
     "clean:workspaces": "turbo run clean",
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
@@ -48,12 +50,15 @@
     "@internal/prettier-config": "workspace:*",
     "@pixpilot/workspace-package-generator": "^1.1.1",
     "@turbo/gen": "^2.5.6",
+    "@vitest/coverage-v8": "catalog:",
+    "@vitest/ui": "catalog:",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.5",
     "prettier": "catalog:",
     "tsx": "^4.20.4",
     "turbo": "^2.5.6",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vitest": "catalog:"
   },
   "prettier": "@internal/prettier-config"
 }

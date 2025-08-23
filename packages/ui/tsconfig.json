@@ -14,7 +14,8 @@
   "include": [
     "src",
     "index.ts",
-    "*.config.ts"
+    "*.config.ts",
+    "test"
   ],
   "exclude": [
     "node_modules"
