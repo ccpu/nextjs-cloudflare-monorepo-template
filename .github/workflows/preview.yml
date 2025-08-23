@@ -29,6 +29,8 @@ jobs:
 
       - name: Setup project
         uses: ./.github/actions/setup-project
+        with:
+          build-web: 'true'
 
       - name: Deploy Preview to Cloudflare Workers
         id: deploy

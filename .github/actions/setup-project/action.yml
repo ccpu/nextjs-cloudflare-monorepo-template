@@ -12,8 +12,8 @@ inputs:
   registry-url:
     description: npm registry URL
     required: false
-  build:
-    description: Whether to run the build step
+  build-web:
+    description: Whether to run the build step for the web package
     required: false
     default: 'false'
 
@@ -40,7 +40,13 @@ runs:
       run: pnpm add -g turbo
       shell: bash
 
-    - name: Build package
-      if: ${{ inputs.build == 'true' }}
-      run: pnpm run build
+    - name: Build packages
+      if: ${{ inputs.build-web == 'true' }}
+      run: pnpm turbo build --filter=web
       shell: bash
+
+    - name: Build OpenNext.js for Cloudflare
+      if: ${{ inputs.build-web == 'true' }}
+      run: cd apps/web && npx opennextjs-cloudflare build
+      shell: bash
+
