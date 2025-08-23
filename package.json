@@ -21,7 +21,7 @@
   },
   "scripts": {
     "web:dev": "pnpm --filter web dev",
-    "web:build": "pnpm --filter web dev",
+    "web:build": "pnpm --filter web build",
     "build": "turbo run build",
     "tsc:watch": "tsc --noEmit --watch --project tsconfig.watch.json",
     "format": "turbo run format --continue -- --cache --cache-location .cache/.prettiercache",
