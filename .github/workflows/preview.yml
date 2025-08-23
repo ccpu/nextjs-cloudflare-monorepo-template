@@ -2,29 +2,32 @@ name: Deploy Preview
 
 on:
   pull_request:
-    types: [closed] # Only for cleanup
-  workflow_dispatch:
-    inputs:
-      pr_number:
-        description: PR number to deploy preview for
-        required: true
-        type: string
+    types: [opened, synchronize, reopened, closed]
+
 jobs:
+  ci:
+    name: Run CI Checks
+    uses:
+      ./.github/workflows/ci.yml
+      # Add your actual build and test commands here
+
   preview:
     runs-on: ubuntu-latest
     name: Deploy Preview
+    needs: ci
     permissions:
       contents: read
       deployments: write
       pull-requests: write
     if: github.event.action != 'closed'
+    environment:
+      name: preview
+      url: ${{ steps.deploy.outputs.deployment-url }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Setup project
         uses: ./.github/actions/setup-project
-
       - name: Deploy Preview to Cloudflare Workers
         id: deploy
         uses: cloudflare/wrangler-action@v3
@@ -32,29 +35,20 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy --env preview
-          workingDirectory: .
-          packageManager: npm
-
+          workingDirectory: ./apps/web
+          packageManager: pnpm
       - name: Comment PR with preview URL
         if: success()
         uses: actions/github-script@v7
         with:
           script: |
-            const deploymentUrl = process.env.DEPLOYMENT_URL ;
-
+            const deploymentUrl = "${{ steps.deploy.outputs.deployment-url }}";
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `🚀 **Preview Deployment Ready!**
-
-              Your changes have been deployed to a preview environment:
-              **[View Preview](${deploymentUrl})**
-
-              This preview will be updated automatically when you push new commits to this PR.`
+              body: `🚀 **Preview Approved & Deployed!**\n\nYour changes have been deployed to a preview environment:\n**[View Preview](${deploymentUrl})**\n\n✅ Build and tests passed\n✅ Deployment approved by @${{ github.actor }}`
             });
-        env:
-          DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
 
   cleanup-preview:
     runs-on: ubuntu-latest
@@ -62,6 +56,4 @@ jobs:
     if: github.event.action == 'closed'
     steps:
       - name: Cleanup Preview Environment
-        run: |
-          echo "PR closed - preview environment cleanup would happen here"
-          # You can add cleanup logic here if needed
+        run: echo "PR closed - preview environment cleanup would happen here"

@@ -46,7 +46,7 @@ Open [http://localhost:3000](http://localhost:3000) to view your app.
 
 #### Set up Environment Variables
 
-Add these secrets to your GitHub repository settings:
+Add these secrets to your GitHub repository settings (`Settings > Secrets and variables > Actions`):
 
 - **`CLOUDFLARE_API_TOKEN`**:
   1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/profile/api-tokens)
@@ -58,6 +58,57 @@ Add these secrets to your GitHub repository settings:
 - **`CLOUDFLARE_ACCOUNT_ID`**:
   1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/)
   2. Copy the Account ID from the right sidebar or dropdown next to the account name
+
+#### Setup Preview Deployments (Optional)
+
+For automatic preview deployments on pull requests:
+
+1. **Enable GitHub Actions** in your repository settings
+2. **Add the required secrets** (above) to your repository
+3. **Configure preview environment** in `apps/web/wrangler.jsonc`:
+   ```json
+   {
+     "env": {
+       "preview": {
+         "name": "your-app-name-preview"
+       }
+     }
+   }
+   ```
+
+#### Setup GitHub Environment with Required Reviewers (Recommended)
+
+For secure deployments with manual approval:
+
+1. **Create GitHub Environment** (IMPORTANT - Do this first to fix linter errors):
+   - Go to your repository `Settings > Environments`
+   - Click "New environment"
+   - Name it: `preview` (must match the name in the workflow)
+   - Click "Configure environment"
+
+2. **Enable Required Reviewers**:
+   - Check "Required reviewers"
+   - Add yourself and/or team members as reviewers
+   - Optionally enable "Prevent self-review" if you want someone else to approve
+
+3. **Configure Environment Secrets** (if different from repository secrets):
+   - Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` if needed
+   - These can override repository-level secrets for this environment
+
+**Important Notes:**
+
+- ⚠️ **VS Code may show a linter error** `Value 'preview' is not valid` until you create the environment in GitHub
+- ✅ **The workflow syntax is correct** - the error will disappear once the environment exists
+- 🔄 **Restart VS Code** after creating the environment to clear the linter error
+
+**Benefits of GitHub Environments:**
+
+- ✅ Built-in GitHub feature with audit trail
+- ✅ Clean UI for approvals in the GitHub interface
+- ✅ Automatic deployment after approval
+- ✅ Easy to see approval status in PR
+- ✅ Can set different reviewers for different environments
+- ✅ Deployment protection rules and wait timers
 
 #### Automatic Deployment
 
@@ -154,6 +205,28 @@ pnpm test           # Run tests
 - [Configuration](./packages/config/README.md) - Shared configs
 
 ## 🔧 Development Notes
+
+### GitHub Actions & Preview Deployments
+
+#### Common Issues and Solutions
+
+**❌ "Required secrets not set" error:**
+
+- Ensure `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` are added to your repository secrets
+- Go to `Settings > Secrets and variables > Actions` in your GitHub repository
+- Add both secrets with the values from your Cloudflare dashboard
+
+**❌ Preview deployment fails:**
+
+- Check that the preview environment name in `wrangler.jsonc` is unique
+- Ensure your Cloudflare account has Workers enabled
+- Verify the API token has the correct permissions
+
+**❌ Build fails in GitHub Actions:**
+
+- The workflow automatically runs `pnpm lint`, `pnpm typecheck`, `pnpm test`, and `pnpm build`
+- Fix any linting, type, or test errors before the preview will deploy
+- Check the Actions tab in your repository for detailed error logs
 
 ### Windows Users
 
