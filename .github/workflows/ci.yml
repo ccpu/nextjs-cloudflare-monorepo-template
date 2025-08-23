@@ -8,6 +8,7 @@ on:
       - main
       - next
   merge_group:
+  workflow_call:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
