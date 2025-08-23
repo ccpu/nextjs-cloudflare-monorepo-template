@@ -14,6 +14,10 @@ out/
 next-env.d.ts
 .open-next/
 
+# next-sitemap will generate these files on every build
+public/sitemap.xml
+public/robots.txt
+
 # cloudflare
 .wrangler
 

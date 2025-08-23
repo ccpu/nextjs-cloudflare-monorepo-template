@@ -4,7 +4,7 @@ const siteConfig = require('./site.config');
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: siteConfig.url, // Fallback to default from config
+  siteUrl: siteConfig.url,
   generateRobotsTxt: true, // Generate robots.txt since we removed the native one
   exclude: ['/admin/*', '/private/*'],
   generateIndexSitemap: false,
