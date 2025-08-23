@@ -35,7 +35,7 @@ export default function Home() {
             <a href="/analytics" className="underline hover:text-blue-600">
               /analytics
             </a>{' '}
-            to see page visit tracking with Drizzle + D1.
+            to see page visit tracking with Drizzle with D1.
           </li>
         </ol>
 
