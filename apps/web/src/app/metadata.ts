@@ -1,29 +1,29 @@
 import type { Metadata } from 'next';
-import { SITE_CONFIG } from '../config';
+import siteConfig from '../../site.config';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_CONFIG.url),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: SITE_CONFIG.name,
-    template: `%s | ${SITE_CONFIG.name}`,
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
   },
-  description: SITE_CONFIG.description,
+  description: siteConfig.description,
   keywords: ['developer', 'portfolio', 'nextjs', 'react', 'typescript'],
-  authors: [{ name: SITE_CONFIG.author.name, url: SITE_CONFIG.url }],
-  creator: SITE_CONFIG.author.name,
+  authors: [{ name: siteConfig.author.name, url: siteConfig.url }],
+  creator: siteConfig.author.name,
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: SITE_CONFIG.url,
-    title: SITE_CONFIG.name,
-    description: SITE_CONFIG.description,
-    siteName: SITE_CONFIG.name,
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
     images: [
       {
         url: '/og-image.svg',
         width: 1200,
         height: 630,
-        alt: SITE_CONFIG.name,
+        alt: siteConfig.name,
       },
     ],
   },

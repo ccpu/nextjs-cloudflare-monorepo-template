@@ -1,11 +1,10 @@
-/* eslint-disable no-restricted-properties */
 // @ts-check
 
-const process = require('node:process');
+const siteConfig = require('./site.config');
 
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL, // Use environment variable for domain
+  siteUrl: siteConfig.url, // Fallback to default from config
   generateRobotsTxt: true, // Generate robots.txt since we removed the native one
   exclude: ['/admin/*', '/private/*'],
   generateIndexSitemap: false,
