@@ -13,22 +13,19 @@ export const pageVisits = sqliteTable('page_visits', {
   updated_at: text('updated_at').default(sql`CURRENT_TIMESTAMP`),
 });
 
-// Generate Zod schemas from Drizzle schema
+// Generate Zod schemas from Drizzle schema - only for API boundaries
 export const insertPageVisitSchema = createInsertSchema(pageVisits, {
   page_path: z.string().min(1, 'Page path is required'),
-  visit_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/u, 'Invalid date format (YYYY-MM-DD)'),
+  visit_date: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/u, 'Invalid date format (YYYY-MM-DD)'),
   visitor_country: z.string().optional(),
   total_visits: z.number().int().positive().default(1),
 });
 
 export const selectPageVisitSchema = createSelectSchema(pageVisits);
 
-// Custom schemas for API operations
+// API validation schemas - used only at API boundaries
 export const recordVisitSchema = z.object({
   pagePath: z.string().min(1, 'Page path is required'),
-});
-
-export const dateRangeSchema = z.object({
-  startDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/u, 'Invalid start date format'),
-  endDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/u, 'Invalid end date format'),
 });

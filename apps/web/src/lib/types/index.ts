@@ -1,10 +1,9 @@
-export type { 
+export type {
   ApiResponse,
-  CreateVisitData, 
-  DateRangeRequest,
+  CreateVisitData,
   InsertPageVisit,
-  PageVisit, 
+  PageVisit,
   RecordVisitRequest,
-  VisitStats 
+  VisitStats,
 } from './visits.types';
 export { apiResponseSchema, visitStatsSchema } from './visits.types';

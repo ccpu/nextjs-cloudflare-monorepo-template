@@ -2,9 +2,8 @@ import type { Database } from '../../db';
 import type { CreateVisitData, PageVisit } from '../types/visits.types';
 
 import { and, eq, gte, lte, sql } from 'drizzle-orm';
-import { z } from 'zod';
 
-import { insertPageVisitSchema, pageVisits, selectPageVisitSchema } from '../../db/schema';
+import { pageVisits } from '../../db/schema';
 
 export class VisitsRepository {
   constructor(private db: Database) {}
@@ -14,11 +13,6 @@ export class VisitsRepository {
     date: string,
     country: string,
   ): Promise<PageVisit | null> {
-    // Validate inputs
-    z.string().min(1).parse(pagePath);
-    z.string().regex(/^\d{4}-\d{2}-\d{2}$/u).parse(date);
-    z.string().parse(country);
-
     const existing = await this.db
       .select()
       .from(pageVisits)
@@ -35,8 +29,6 @@ export class VisitsRepository {
   }
 
   async incrementVisit(id: number): Promise<void> {
-    z.number().int().positive().parse(id);
-
     await this.db
       .update(pageVisits)
       .set({
@@ -47,43 +39,27 @@ export class VisitsRepository {
   }
 
   async createVisit(data: CreateVisitData): Promise<void> {
-    // Validate the data before insertion
-    const validatedData = insertPageVisitSchema.parse({
+    // Only validate at the database boundary - Drizzle will enforce constraints
+    await this.db.insert(pageVisits).values({
       page_path: data.pagePath,
       visit_date: data.date,
       visitor_country: data.country,
       total_visits: 1,
     });
-
-    await this.db.insert(pageVisits).values(validatedData);
   }
 
   async getAllVisits(): Promise<PageVisit[]> {
-    const visits = await this.db
-      .select()
-      .from(pageVisits)
-      .orderBy(pageVisits.visit_date);
-
-    // Validate the returned data
-    return z.array(selectPageVisitSchema).parse(visits);
+    // Trust Drizzle's type inference - no need for runtime validation
+    return this.db.select().from(pageVisits).orderBy(pageVisits.visit_date);
   }
 
   async getVisitsByDateRange(startDate: string, endDate: string): Promise<PageVisit[]> {
-    // Validate date inputs
-    z.string().regex(/^\d{4}-\d{2}-\d{2}$/u).parse(startDate);
-    z.string().regex(/^\d{4}-\d{2}-\d{2}$/u).parse(endDate);
-
-    const visits = await this.db
+    return this.db
       .select()
       .from(pageVisits)
       .where(
-        and(
-          gte(pageVisits.visit_date, startDate),
-          lte(pageVisits.visit_date, endDate),
-        ),
+        and(gte(pageVisits.visit_date, startDate), lte(pageVisits.visit_date, endDate)),
       )
       .orderBy(pageVisits.visit_date);
-
-    return z.array(selectPageVisitSchema).parse(visits);
   }
 }

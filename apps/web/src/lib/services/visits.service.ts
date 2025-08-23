@@ -5,10 +5,15 @@ export class VisitsService {
   constructor(private visitsRepository: VisitsRepository) {}
 
   async recordVisit(pagePath: string, country: string): Promise<void> {
+    // Basic business validation - ensure page path is not empty
+    if (!pagePath.trim()) {
+      throw new Error('Page path cannot be empty');
+    }
+
     const today = new Date().toISOString().split('T')[0] ?? '';
-    
+
     const existingVisit = await this.visitsRepository.findExistingVisit(
-      pagePath,
+      pagePath.trim(),
       today,
       country,
     );
@@ -17,7 +22,7 @@ export class VisitsService {
       await this.visitsRepository.incrementVisit(existingVisit.id);
     } else {
       await this.visitsRepository.createVisit({
-        pagePath,
+        pagePath: pagePath.trim(),
         country,
         date: today,
       });
@@ -30,7 +35,7 @@ export class VisitsService {
 
   async getVisitStats(): Promise<VisitStats> {
     const visits = await this.getAllVisits();
-    
+
     return {
       totalPages: new Set(visits.map((v) => v.page_path)).size,
       totalDays: new Set(visits.map((v) => v.visit_date)).size,

@@ -1,100 +1,37 @@
 # Web App
 
-Next.js 15 application deployed on Cloudflare Workers with automatic SEO optimization and PWA capabilities.
+Next.js 15 app with Cloudflare Workers deployment, analytics, and optimized validation architecture.
 
-## ✨ Features
+## Features
 
 - **Next.js 15** with App Router
-- **Tailwind CSS** for styling
-- **Cloudflare Workers** deployment
-- **Automatic SEO** - sitemap, robots.txt, manifest
-- **PWA ready** with service worker support
+- **Tailwind CSS** styling
+- **Cloudflare D1** database with visit tracking
+- **Simplified validation** - Zod only at API boundaries
 - **TypeScript** throughout
 
-## 🚀 Development
+## Development
 
 ```bash
-# Start development server
-pnpm dev
-
-# Build for production
-pnpm build
-
-# Deploy to Cloudflare
-pnpm deploy
-
-# Preview deployment
-pnpm preview
+pnpm dev     # Start dev server
+pnpm build   # Build for production
+pnpm deploy  # Deploy to Cloudflare
 ```
 
-## 📄 Routes
+## Routes
 
-- `/` - Home page with getting started guide
-- `/blog` - Blog listing page
-- `/blog/[slug]` - Individual blog posts
+- `/` - Home page
+- `/analytics` - Visit analytics dashboard
+- `/blog` - Blog pages
 - `/contact` - Contact page
-- `/sitemap.xml` - Auto-generated sitemap
-- `/robots.txt` - SEO robots file
-- `/manifest.webmanifest` - PWA manifest
+- `/api/visits` - Visit tracking API
 
-## 🔧 Configuration
-
-### Cloudflare Settings
-
-The app is configured for optimal Cloudflare Workers deployment:
-
-- Static asset optimization
-- Edge-compatible routing
-- Automatic metadata generation
-- Performance optimizations
-
-### Environment Variables
-
-Set these in your deployment environment:
-
-```bash
-# Optional: Custom site metadata
-NEXT_PUBLIC_SITE_NAME="Your Site Name"
-NEXT_PUBLIC_SITE_URL="https://yoursite.com"
-```
-
-## 📁 Project Structure
+## Structure
 
 ```
 src/
-├── app/                 # App Router pages
-│   ├── layout.tsx       # Root layout
-│   ├── page.tsx         # Home page
-│   ├── globals.css      # Global styles
-│   ├── blog/           # Blog pages
-│   └── contact/        # Contact page
-└── components/         # Reusable components (if any)
+├── app/           # App Router pages & API routes
+├── components/    # React components
+├── db/           # Drizzle schema & database
+└── lib/          # Services, repositories, hooks
 ```
-
----
-
-Ready to customize? Start editing `src/app/page.tsx` 🎨
-
-## Configuration
-
-- `next.config.ts` - Next.js configuration
-- `wrangler.jsonc` - Cloudflare Workers configuration
-- `open-next.config.ts` - OpenNext Cloudflare adapter configuration
-
-## Environment Variables
-
-Add a `.env.local` file with:
-
-```
-# Add your environment variables here
-```
-
-## Metadata
-
-The app includes comprehensive metadata for SEO:
-
-- Open Graph tags
-- Twitter Cards
-- Structured data ready
-- Sitemap generation
-- Robots.txt

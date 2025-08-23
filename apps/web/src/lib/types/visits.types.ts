@@ -1,8 +1,7 @@
-import type { 
-  dateRangeSchema,
-  insertPageVisitSchema, 
+import type {
+  insertPageVisitSchema,
   recordVisitSchema,
-  selectPageVisitSchema
+  selectPageVisitSchema,
 } from '../../db/schema';
 
 import { z } from 'zod';
@@ -11,7 +10,6 @@ import { z } from 'zod';
 export type PageVisit = z.infer<typeof selectPageVisitSchema>;
 export type InsertPageVisit = z.infer<typeof insertPageVisitSchema>;
 export type RecordVisitRequest = z.infer<typeof recordVisitSchema>;
-export type DateRangeRequest = z.infer<typeof dateRangeSchema>;
 
 export interface CreateVisitData {
   pagePath: string;
@@ -32,7 +30,9 @@ export const visitStatsSchema = z.object({
   totalVisits: z.number(),
 });
 
-export function apiResponseSchema<T extends z.ZodTypeAny>(dataSchema: T): z.ZodObject<{
+export function apiResponseSchema<T extends z.ZodTypeAny>(
+  dataSchema: T,
+): z.ZodObject<{
   success: z.ZodBoolean;
   data: z.ZodOptional<T>;
   error: z.ZodOptional<z.ZodString>;
