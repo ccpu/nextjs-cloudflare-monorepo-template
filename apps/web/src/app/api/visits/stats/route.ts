@@ -15,26 +15,25 @@ function isValidEnv(env: unknown): env is { DB: D1Database } {
 export async function GET(_request: NextRequest): Promise<NextResponse> {
   try {
     const { env } = getCloudflareContext();
-    
+
     if (!isValidEnv(env)) {
       throw new Error('Database not configured');
     }
-    
+
     const db = getDb({ DB: env.DB });
     const visitsService = createVisitsService(db);
-    
+
     const stats = await visitsService.getVisitStats();
-    
+
     const response: ApiResponse<VisitStats> = {
       success: true,
       data: stats,
     };
-    
-    return NextResponse.json(response);
 
+    return NextResponse.json(response);
   } catch (error) {
     console.error('Stats fetch error:', error);
-    
+
     const response: ApiResponse<null> = {
       success: false,
       error: 'Failed to fetch stats',

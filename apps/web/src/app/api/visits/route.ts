@@ -22,11 +22,11 @@ function isValidEnv(env: unknown): env is { DB: D1Database } {
 
 function getVisitsService() {
   const { env } = getCloudflareContext();
-  
+
   if (!isValidEnv(env)) {
     throw new Error('Database not configured');
   }
-  
+
   const db = getDb({ DB: env.DB });
   return createVisitsService(db);
 }
@@ -34,23 +34,22 @@ function getVisitsService() {
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     const visitsService = getVisitsService();
-    
+
     const body = await request.json();
-    
+
     // Validate request body with Zod
     const validatedData = recordVisitSchema.parse(body);
     const { pagePath } = validatedData;
 
     const country = request.headers.get('CF-IPCountry') ?? 'Unknown';
-    
+
     await visitsService.recordVisit(pagePath, country);
 
     const response: ApiResponse<null> = { success: true };
     return NextResponse.json(response);
-
   } catch (error) {
     console.error('Visit recording error:', error);
-    
+
     // Handle Zod validation errors
     if (error instanceof z.ZodError) {
       const response: ApiResponse<null> = {
@@ -71,39 +70,40 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 export async function GET(request: NextRequest): Promise<NextResponse> {
   try {
     const visitsService = getVisitsService();
-    
+
     // Optional: Handle query parameters for date range
     const { searchParams } = new URL(request.url);
     const startDate = searchParams.get('startDate');
     const endDate = searchParams.get('endDate');
 
     let visits: PageVisit[];
-    
+
     if (startDate != null && endDate != null) {
       // Validate date range parameters
-      const validatedParams = z.object({
-        startDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/u),
-        endDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/u),
-      }).parse({ startDate, endDate });
-      
+      const validatedParams = z
+        .object({
+          startDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/u),
+          endDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/u),
+        })
+        .parse({ startDate, endDate });
+
       visits = await visitsService.getVisitsByDateRange(
         validatedParams.startDate,
-        validatedParams.endDate
+        validatedParams.endDate,
       );
     } else {
       visits = await visitsService.getAllVisits();
     }
-    
+
     const response: ApiResponse<{ visits: PageVisit[] }> = {
       success: true,
       data: { visits },
     };
-    
-    return NextResponse.json(response);
 
+    return NextResponse.json(response);
   } catch (error) {
     console.error('Visits fetch error:', error);
-    
+
     if (error instanceof z.ZodError) {
       const response: ApiResponse<null> = {
         success: false,

@@ -54,8 +54,12 @@ export default function Analytics() {
               <table className="w-full rounded-lg border bg-white shadow">
                 <thead>
                   <tr className="border-b bg-gray-50">
-                    <th className="px-4 py-3 text-left font-medium text-gray-700">Page</th>
-                    <th className="px-4 py-3 text-left font-medium text-gray-700">Date</th>
+                    <th className="px-4 py-3 text-left font-medium text-gray-700">
+                      Page
+                    </th>
+                    <th className="px-4 py-3 text-left font-medium text-gray-700">
+                      Date
+                    </th>
                     <th className="px-4 py-3 text-left font-medium text-gray-700">
                       Country
                     </th>
