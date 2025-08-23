@@ -52,7 +52,7 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
           workingDirectory: apps/web
-          packageManager: npm
+          packageManager: pnpm
 
       - name: Print deployment information
         if: success()
