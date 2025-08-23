@@ -19,29 +19,15 @@ on:
           - preview
 
 jobs:
-  # Job for pull requests - build and test only
-  build-and-test:
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    name: Build and Test
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup project
-        uses: ./.github/actions/setup-project
-
-      - name: Build application
-        run: pnpm turbo build --filter=web
-
-      - name: Run lint
-        run: pnpm turbo lint --filter=web
-
+  ci:
+    name: Run CI Checks
+    uses: ./.github/workflows/ci.yml
   # Job for main branch pushes and manual triggers - build and deploy
   deploy:
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     name: Deploy
+    needs: ci
     permissions:
       contents: read
       deployments: write
