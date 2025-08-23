@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { SITE_CONFIG } from '@internal/config';
+import { SITE_CONFIG } from '../config';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),

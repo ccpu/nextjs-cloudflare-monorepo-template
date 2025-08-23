@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "pnpm with-env next build",
     "postbuild": "next-sitemap",
     "sitemap": "next-sitemap",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "@cloudflare/workers-types": "^4.20250822.0",
-    "@internal/config": "workspace:*",
     "@internal/ui": "workspace:*",
     "@internal/utils": "workspace:*",
     "@opennextjs/cloudflare": "^1.6.5",
