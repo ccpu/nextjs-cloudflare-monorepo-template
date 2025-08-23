@@ -25,10 +25,10 @@
     "@testing-library/react": "16.3.0",
     "@vitejs/plugin-react": "^4.3.4",
     "@vitest/coverage-v8": "^3.2.4",
-    "eslint": "catalog:",
+    "eslint": "catalog:dev",
     "jsdom": "^26.0.0",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "catalog:"
+    "vitest": "catalog:dev"
   },
   "prettier": "@internal/prettier-config"
 }

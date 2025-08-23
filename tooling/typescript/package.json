@@ -6,7 +6,7 @@
     "*.json"
   ],
   "devDependencies": {
-    "@pixpilot/dev-config": "catalog:"
+    "@pixpilot/dev-config": "catalog:dev"
   },
   "prettier": "@internal/prettier-config"
 }

@@ -50,15 +50,15 @@
     "@internal/prettier-config": "workspace:*",
     "@pixpilot/workspace-package-generator": "^1.1.1",
     "@turbo/gen": "^2.5.6",
-    "@vitest/coverage-v8": "catalog:",
-    "@vitest/ui": "catalog:",
+    "@vitest/coverage-v8": "catalog:dev",
+    "@vitest/ui": "catalog:dev",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.5",
-    "prettier": "catalog:",
+    "prettier": "catalog:dev",
     "tsx": "^4.20.4",
     "turbo": "^2.5.6",
-    "typescript": "catalog:",
-    "vitest": "catalog:"
+    "typescript": "catalog:dev",
+    "vitest": "catalog:dev"
   },
   "prettier": "@internal/prettier-config"
 }
