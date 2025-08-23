@@ -1,3 +1,5 @@
+'use client';
+
 import type { ApiResponse, PageVisit, VisitStats } from '../types/visits.types';
 
 import { useEffect, useState } from 'react';

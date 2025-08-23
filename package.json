@@ -35,6 +35,7 @@
     "postinstall": "pnpm lint:ws",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
+    "prepare": "husky",
     "clean:workspaces": "turbo run clean",
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
     "deps:update": "npx taze -r -w && pnpm install",
