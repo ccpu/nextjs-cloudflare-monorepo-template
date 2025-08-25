@@ -10,6 +10,6 @@
     ],
     "module": "esnext"
   },
-  "include": [".", ".next/types/**/*.ts", "*.config.ts"],
+  "include": [".", ".next/types/**/*.ts", "*.config.ts","site.config.js"],
   "exclude": ["node_modules"]
 }
