@@ -6,6 +6,7 @@ Next.js 15 app with Cloudflare Workers deployment, analytics, and optimized vali
 
 - **Next.js 15** with App Router
 - **Tailwind CSS v4** styling with dark mode support
+- **tailwindcss-animated** - Pre-built animations for smooth UX
 - **Theme System** - Light, Dark, and System preference modes with next-themes
 - **Cloudflare D1** database with visit tracking
 - **next-sitemap** for automated sitemap and robots.txt generation
@@ -67,3 +68,21 @@ The app includes a comprehensive theme system built with `next-themes`:
 - **Configurable** - Can be enabled/disabled via `site.config.ts`
 
 Toggle between themes using the button in the top-right corner, or cycle through Light → Dark → System modes.
+
+## Animations
+
+This template uses **tailwindcss-animated** for smooth, performant animations:
+
+- **Pre-built animations** - Fade, bounce, wiggle, zoom, and more
+- **Utility classes** - Control duration, delay, timing, and iteration
+- **Responsive support** - Apply animations based on screen size
+- **Hover animations** - Interactive button and link effects
+- **Optimized performance** - CSS-based animations for best performance
+
+Key animation patterns used:
+
+- Page load sequences with staggered delays
+- Hover effects on interactive elements
+- Entrance animations for content sections
+
+For more animations and customization options, see the [tailwindcss-animated documentation](https://tailwindcss-animated.com/).
