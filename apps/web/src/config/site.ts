@@ -1,13 +1,10 @@
-// @ts-check
-
-/** @typedef {import("./types/site.config").SiteConfig} SiteConfig */
+import type { SiteConfig } from '../../types/site.config';
 
 /**
- * Site configuration - JavaScript version for use in build tools
+ * Site configuration with TypeScript support
  * This is the source of truth for site configuration
- * @type {SiteConfig}
  */
-const siteConfig = {
+export const siteConfig: SiteConfig = {
   name: 'Coundflare Next.js Monorepo Template',
   description:
     'A starter template for building Next.js applications with Cloudflare Workers in a monorepo setup using Turborepo and PNPM.',
@@ -22,6 +19,7 @@ const siteConfig = {
     enabled: true, // Set to false to disable theme switching
     defaultTheme: 'system', // 'light', 'dark', or 'system'
   },
-};
+} as const;
 
-module.exports = siteConfig;
+export default siteConfig;
+export type { SiteConfig };

@@ -1,6 +1,24 @@
-# Database Setup (Drizzle + Cloudflare D1)
+# Visitor Database Setup (Drizzle + Cloudflare D1) - Optional
 
-This template includes privacy-friendly page visit tracking using Drizzle ORM with Cloudflare D1 database.
+This template includes optional privacy-friendly page visit tracking using Drizzle ORM with Cloudflare D1 database.
+
+**Important**: Visitor tracking is **disabled by default**. This guide shows you how to set up the database and enable the feature if you want to use it.
+
+## Prerequisites
+
+Before setting up the visitor database, you need to:
+
+1. **Enable the VisitTracker component** in your layout file (`apps/web/src/app/layout.tsx`):
+
+   ```tsx
+   // Uncomment these lines:
+   import VisitTracker from '../components/VisitTracker';
+
+   // And in the JSX:
+   <VisitTracker />;
+   ```
+
+2. **Follow the database setup steps below**
 
 ## ✅ Setup Complete Status
 

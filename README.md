@@ -17,7 +17,7 @@ See a working demo:
 - 🎨 **Tailwind CSS** for styling
 - 📊 **TypeScript** throughout
 - 🗄️ **Drizzle ORM + D1** for database operations
-- 📈 **Page visit tracking** (GDPR-friendly)
+- 📈 **Page visit tracking** (optional, GDPR-friendly)
 - 🤖 **Automatic SEO** (sitemap, robots.txt, manifest)
 - 🧹 **ESLint & Prettier** configured
 - 📱 **PWA ready**
@@ -133,9 +133,11 @@ For deployments to the default Cloudflare `worker.dev` subdomain, ensure that `w
 - [Cloudflare Docs: Custom Domains](https://developers.cloudflare.com/workers/platform/routes/)
 - [Cloudflare Docs: worker.dev](https://developers.cloudflare.com/workers/configuration/routing/workers-dev/)
 
-## �️ Database Setup
+## 🗄️ Database Setup (Optional)
 
-This template includes **Drizzle ORM with Cloudflare D1** for privacy-friendly page visit tracking.
+This template includes optional **Drizzle ORM with Cloudflare D1** for privacy-friendly page visit tracking.
+
+**Note**: Visitor tracking is disabled by default. To enable it, see the "Enable Visitor Tracking" section below.
 
 ### Create D1 Database
 
@@ -163,9 +165,24 @@ Update `apps/web/wrangler.jsonc`:
 }
 ```
 
-📖 **[See DATABASE_SETUP.md for complete setup instructions](./DATABASE_SETUP.md)**
+📖 **[See VISITOR_DATABASE_SETUP.md for complete setup instructions](./VISITOR_DATABASE_SETUP.md)**
 
-**Features:**
+## 📈 Enable Visitor Tracking (Optional)
+
+Visitor tracking is disabled by default. To enable it:
+
+1. **Set up the database** (see Database Setup section above)
+2. **Enable the VisitTracker component** in `apps/web/src/app/layout.tsx`:
+
+   ```tsx
+   // Uncomment these lines:
+   import VisitTracker from '../components/VisitTracker';
+
+   // And in the JSX:
+   <VisitTracker />;
+   ```
+
+**Features when enabled:**
 
 - 📊 Page visit analytics at `/analytics`
 - 🛡️ GDPR-friendly (no personal data stored)

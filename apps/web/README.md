@@ -5,7 +5,8 @@ Next.js 15 app with Cloudflare Workers deployment, analytics, and optimized vali
 ## Features
 
 - **Next.js 15** with App Router
-- **Tailwind CSS** styling
+- **Tailwind CSS v4** styling with dark mode support
+- **Theme System** - Light, Dark, and System preference modes with next-themes
 - **Cloudflare D1** database with visit tracking
 - **next-sitemap** for automated sitemap and robots.txt generation
 - **Simplified validation** - Zod only at API boundaries
@@ -49,7 +50,20 @@ src/
 
 ## Configuration Files
 
+- `site.config.js` - JavaScript version for build tools
 - `next-sitemap.config.js` - Sitemap generation configuration
 - `next.config.ts` - Next.js configuration with Cloudflare Workers support
 - `drizzle.config.ts` - Database configuration
 - `wrangler.jsonc` - Cloudflare Workers configuration
+
+## Theme System
+
+The app includes a comprehensive theme system built with `next-themes`:
+
+- **Light Mode** - Clean and bright interface
+- **Dark Mode** - Comfortable for low-light environments
+- **System Mode** - Automatically follows your OS preference
+- **Persistent** - Remembers your choice across sessions
+- **Configurable** - Can be enabled/disabled via `site.config.ts`
+
+Toggle between themes using the button in the top-right corner, or cycle through Light → Dark → System modes.

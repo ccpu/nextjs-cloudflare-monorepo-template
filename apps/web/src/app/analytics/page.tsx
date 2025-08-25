@@ -17,7 +17,13 @@ export default function Analytics() {
   if (visitsError != null || statsError != null) {
     return (
       <div className="flex min-h-screen items-center justify-center">
-        <p className="text-red-500">Error: {visitsError ?? statsError}</p>
+        <div>
+          <p className="text-red-500">Error: {visitsError ?? statsError}</p>
+          <p className="mt-2 text-sm text-gray-600">
+            Make sure you have set up the visitor database. See{' '}
+            <strong>VISITOR_DATABASE_SETUP.md</strong> for instructions.
+          </p>
+        </div>
       </div>
     );
   }
