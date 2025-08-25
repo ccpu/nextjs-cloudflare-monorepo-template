@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
+        // This image is used for Open Graph metadata. It controls the preview shown when your site is shared on social media, helping with branding and engagement.
         url: '/og-image.svg',
         width: 1200,
         height: 630,
