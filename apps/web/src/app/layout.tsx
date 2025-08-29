@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { cn } from '@internal/utils';
 
+import { Geist, Geist_Mono } from 'next/font/google';
 import siteConfig from '../../site.config';
 import { ThemeProvider } from '../components/ThemeProvider';
 import { ThemeToggle } from '../components/ThemeToggle';
+
 // import VisitTracker from '../components/VisitTracker'; // Uncomment to enable visitor tracking
 import { metadata as siteMetadata } from './metadata';
-
 import './globals.css';
 
 const geistSans = Geist({
@@ -32,7 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={cn(geistSans.variable, geistMono.variable, defaultTheme)}
       suppressHydrationWarning
     >
       <body className="bg-background text-foreground antialiased">
