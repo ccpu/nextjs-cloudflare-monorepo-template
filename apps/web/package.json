@@ -25,7 +25,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@cloudflare/workers-types": "^4.20250823.0",
+    "@cloudflare/workers-types": "^4.20250904.0",
     "@internal/ui": "workspace:*",
     "@internal/utils": "workspace:*",
     "@opennextjs/cloudflare": "^1.6.5",
