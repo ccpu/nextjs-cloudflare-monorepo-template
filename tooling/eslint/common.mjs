@@ -1,4 +1,4 @@
-/** @type {import('@pixpilot/antfu-eslint-config').TypedFlatConfigItem[]} */
+/** @type {import('@pixpilot/eslint-config').TypedFlatConfigItem[]} */
 const commonConfig = [
   { ignores: ['**/env.ts'] },
   {

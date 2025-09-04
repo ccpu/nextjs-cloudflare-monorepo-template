@@ -1,4 +1,4 @@
-import { fileURLToPath } from 'node:url';
+// import { fileURLToPath } from 'node:url';
 import prettierConfig from '@pixpilot/dev-config/prettier';
 
 /** @typedef {import("prettier").Config} PrettierConfig */
@@ -8,9 +8,6 @@ import prettierConfig from '@pixpilot/dev-config/prettier';
 const config = {
   ...prettierConfig,
   plugins: ['prettier-plugin-tailwindcss'],
-  tailwindConfig: fileURLToPath(
-    new URL('../../tooling/tailwind/web.ts', import.meta.url),
-  ),
   tailwindFunctions: ['cn', 'cva'],
   overrides: [
     ...prettierConfig.overrides,

@@ -18,6 +18,9 @@
     "test:ui": "vitest --ui",
     "build": "tsc --outDir dist --declaration --emitDeclarationOnly false"
   },
+  "dependencies": {
+    "@internal/utils": "workspace:*"
+  },
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
