@@ -28,7 +28,7 @@
     "format:fix": "pnpm format --write",
     "lint": "turbo run lint --continue -- --cache --cache-location .cache/.eslintcache && pnpm lint:root",
     "lint:fix": "pnpm lint --fix && pnpm lint:root:fix",
-    "lint:root": "eslint .github *.config.{js,cjs,mjs,ts} *.json README.md --cache --cache-location .cache/.eslintcache",
+    "lint:root": "eslint scripts .github *.config.{js,cjs,mjs,ts} *.json README.md --cache --cache-location .cache/.eslintcache",
     "lint:root:fix": "pnpm lint:root --fix",
     "lint:ws": "pnpm dlx sherif@latest",
     "fix:all": "pnpm format:fix && pnpm lint:fix",
