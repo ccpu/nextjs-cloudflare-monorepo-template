@@ -5,7 +5,7 @@ packages:
 
 catalogs:
   dev:
-    '@babel/core': ^7.28.3
+    '@babel/core': ^7.28.4
     '@pixpilot/dev-config': ^3.1.2
     '@types/jest': ^30.0.0
     '@types/node': ^22.17.2
