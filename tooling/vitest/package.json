@@ -4,9 +4,18 @@
   "version": "0.1.0",
   "private": true,
   "exports": {
-    ".": "./index.js",
-    "./lib": "./lib.js",
-    "./react": "./react.js"
+    ".": {
+      "types": "./dist/vitest/index.d.ts",
+      "default": "./index.js"
+    },
+    "./lib": {
+      "types": "./dist/vitest/lib.d.ts",
+      "default": "./lib.js"
+    },
+    "./react": {
+      "types": "./dist/vitest/react.d.ts",
+      "default": "./react.js"
+    }
   },
   "main": "./index.js",
   "types": "./dist/vitest/index.d.ts",
