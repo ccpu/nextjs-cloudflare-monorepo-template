@@ -33,7 +33,7 @@
     "clean": {
       "cache": false
     },
-    "//#clean": {
+    "clean:all": {
       "cache": false
     },
     "push": {
