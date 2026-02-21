@@ -43,7 +43,7 @@
     "clean:workspaces:install": "pnpm clean:workspaces && pnpm install",
     "deps:update": "npx taze -r -w && pnpm install",
     "deps:update:major": "npx taze major -r -w && pnpm install",
-    "turbo:gen:init": "pnpm turbo gen init"
+    "gen:package": "npx @pixpilot/scaffoldfy --config ./generators/package/scaffoldfy.json"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
