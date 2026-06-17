@@ -31,10 +31,6 @@ jobs:
       - name: Setup project
         uses: ./.github/actions/setup-project
 
-      - name: Copy env
-        shell: bash
-        run: cp .env.example .env
-
       - name: Run tests
         run: pnpm test
 
