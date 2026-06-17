@@ -120,15 +120,22 @@ git push origin main
 
 ## 🌐 Custom Domains & worker.dev Setup
 
-To deploy to a custom domain, you must set the `"routes"` value in your `apps/web/wrangler.jsonc` file. Example:
+`apps/web/wrangler.jsonc` ships with a placeholder custom domain:
 
 ```json
 {
-  "routes": ["https://yourdomain.com/*"]
+  "routes": [
+    {
+      "pattern": "yourdomain.com",
+      "custom_domain": true
+    }
+  ]
 }
 ```
 
-For deployments to the default Cloudflare `worker.dev` subdomain, ensure that `worker.dev` is enabled in your Cloudflare dashboard. If you do not set `"routes"`, your Worker will deploy to `worker.dev` (if enabled).
+Replace `yourdomain.com` with your real domain before deploying. The deploy script will fail fast if the placeholder is still present.
+
+For deployments to the default Cloudflare `worker.dev` subdomain, remove the custom domain route and ensure that `worker.dev` is enabled in your Cloudflare dashboard.
 
 - [Cloudflare Docs: Custom Domains](https://developers.cloudflare.com/workers/platform/routes/)
 - [Cloudflare Docs: worker.dev](https://developers.cloudflare.com/workers/configuration/routing/workers-dev/)

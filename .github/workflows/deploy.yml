@@ -38,6 +38,9 @@ jobs:
         with:
           build-web: 'true'
 
+      - name: Validate custom domain
+        run: pnpm --filter web validate:domain
+
       - name: Deploy to Cloudflare Workers
         id: deploy
         uses: cloudflare/wrangler-action@v3

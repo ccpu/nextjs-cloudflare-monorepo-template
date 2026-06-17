@@ -22,6 +22,8 @@ pnpm sitemap  # Generate sitemap and robots.txt
 pnpm deploy   # Deploy to Cloudflare
 ```
 
+`pnpm deploy` validates `wrangler.jsonc` first and stops if `yourdomain.com` has not been replaced with your real custom domain.
+
 ## SEO & Sitemaps
 
 This app uses `next-sitemap` to automatically generate:
@@ -55,7 +57,7 @@ src/
 - `next-sitemap.config.js` - Sitemap generation configuration
 - `next.config.ts` - Next.js configuration with Cloudflare Workers support
 - `drizzle.config.ts` - Database configuration
-- `wrangler.jsonc` - Cloudflare Workers configuration
+- `wrangler.jsonc` - Cloudflare Workers configuration with a placeholder custom domain that must be replaced before deployment
 
 ## Theme System
 

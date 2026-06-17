@@ -8,13 +8,18 @@
   "main": ".open-next/worker.js",
   "compatibility_date": "2025-03-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+
+  "workers_dev": false,
   /**
    * 'routes' configures custom domains for your Worker.
-   * Example: ["https://yourdomain.com/*"]
-   * If omitted, the Worker will deploy to worker.dev (if enabled in Cloudflare).
-   * See: https://developers.cloudflare.com/workers/platform/routes/
+   * If omitted, and workers_dev is false, the app will not be publicly accessible.
    */
-  "routes": [],
+  "routes": [
+    {
+      "pattern": "yourdomain.com",
+      "custom_domain": true
+    }
+  ],
   "assets": {
     "binding": "ASSETS",
     "directory": ".open-next/assets"
