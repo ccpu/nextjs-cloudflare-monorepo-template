@@ -22,7 +22,7 @@ jobs:
     uses: ./.github/workflows/ci.yml
   # Job for main branch pushes and manual triggers - build and deploy
   deploy:
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    if: github.repository != 'ccpu/nextjs-cloudflare-monorepo-template' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     name: Deploy
     needs: ci
