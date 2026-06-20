@@ -48,6 +48,7 @@ yarn-error.log*
 # local env files
 .env
 .env*.local
+!.env.example
 
 # npmrc secrets (Docker build authentication)
 .npmrc.secrets
