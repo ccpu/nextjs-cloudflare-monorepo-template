@@ -1,11 +1,12 @@
+import type { D1Database } from '@cloudflare/workers-types';
+
 import type { NextRequest } from 'next/server';
 
 import type { ApiResponse, PageVisit } from '../../../lib/types/visits.types';
-
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { NextResponse } from 'next/server';
-import { z } from 'zod';
 
+import { z } from 'zod';
 import { getDb } from '../../../db';
 import { recordVisitSchema } from '../../../db/schema';
 import { createVisitsService } from '../../../lib';
@@ -21,7 +22,8 @@ function isValidEnv(env: unknown): env is { DB: D1Database } {
 }
 
 function getVisitsService() {
-  const { env } = getCloudflareContext();
+  const cloudflareContext = getCloudflareContext() as { env?: unknown };
+  const { env } = cloudflareContext;
 
   if (!isValidEnv(env)) {
     throw new Error('Database not configured');
@@ -35,7 +37,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     const visitsService = getVisitsService();
 
-    const body = await request.json();
+    const body: unknown = await request.json();
 
     // Validate request body with Zod
     const validatedData = recordVisitSchema.parse(body);

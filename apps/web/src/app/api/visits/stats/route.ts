@@ -1,3 +1,4 @@
+import type { D1Database } from '@cloudflare/workers-types';
 import type { NextRequest } from 'next/server';
 
 import type { ApiResponse, VisitStats } from '../../../../lib/types/visits.types';
