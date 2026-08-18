@@ -2,7 +2,7 @@
   "extends": "./tooling/typescript/base.json",
   "compilerOptions": {
     "baseUrl": ".",
-
+    "types": ["vitest/globals", "@testing-library/jest-dom", "@cloudflare/workers-types"],
     "allowJs": false,
     "checkJs": false,
     "strict": true,

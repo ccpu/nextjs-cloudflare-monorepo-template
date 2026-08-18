@@ -9,7 +9,7 @@
     "validate:domain": "node ./scripts/validate-custom-domain.mjs",
     "deploy": "pnpm validate:domain && opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts",
+    "cf-typegen": "pnpm with-env wrangler types --env-interface CloudflareEnv --include-runtime false ./types/cloudflare-env.d.ts",
     "clean": "git clean -xdf .cache .turbo dist .next .open-next .wrangler",
     "clean:all": "pnpm clean && git clean -xdf node_modules",
     "dev": "next dev --turbopack",
@@ -27,7 +27,6 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@cloudflare/workers-types": "^4.20250823.0",
     "@internal/ui": "workspace:*",
     "@internal/utils": "workspace:*",
     "@opennextjs/cloudflare": "^1.6.5",
@@ -41,6 +40,7 @@
     "zod": "catalog:prod"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "catalog:dev",
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
