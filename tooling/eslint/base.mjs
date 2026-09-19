@@ -2,7 +2,6 @@ import defineConfig from '@pixpilot/eslint-config';
 import turboPlugin from 'eslint-plugin-turbo';
 import commonConfig from './common.mjs';
 
- 
 const recommendedTurboConfig = turboPlugin.configs?.recommended;
 const recommendedTurboRules =
   recommendedTurboConfig &&
