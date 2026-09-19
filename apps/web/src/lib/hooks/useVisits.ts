@@ -17,7 +17,7 @@ export function useVisits(): {
     const fetchVisits = async () => {
       try {
         const res = await fetch('/api/visits');
-        const response: ApiResponse<{ visits: PageVisit[] }> = await res.json();
+        const response = (await res.json()) as ApiResponse<{ visits: PageVisit[] }>;
 
         // Trust the API response - basic error handling only
         if (!response.success) {
@@ -52,7 +52,7 @@ export function useVisitStats(): {
     const fetchStats = async () => {
       try {
         const res = await fetch('/api/visits/stats');
-        const response: ApiResponse<VisitStats> = await res.json();
+        const response = (await res.json()) as ApiResponse<VisitStats>;
 
         // Trust the API response - basic error handling only
         if (!response.success) {

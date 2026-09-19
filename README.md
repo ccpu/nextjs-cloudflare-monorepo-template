@@ -27,11 +27,16 @@ See a working demo:
 ### 1. Installation
 
 ```bash
-# Clone and install dependencies
+# Clone and initialize the template for your project (installs dependencies too)
 git clone <your-repo-url>
 cd nextjs-cloudflare-monorepo-template
-pnpm install
+pnpm run setup
 ```
+
+This is a one-time step. Until `pnpm run setup` has run, `pnpm install` prints a
+reminder and `git commit` is blocked. Setup ends by deleting the `setup/` folder,
+so the gate removes itself. It is skipped in CI, in this template repo itself, and
+with `SKIP_SETUP_CHECK=1`.
 
 ### 2. Development
 
