@@ -39,7 +39,7 @@ export default function RootLayout({
       <head>
         <meta name="darkreader" content="NO-DARKREADER-PLUGIN" />
         <script
-          // eslint-disable-next-line react-dom/no-dangerously-set-innerhtml
+          // eslint-disable-next-line react/dom-no-dangerously-set-innerhtml
           dangerouslySetInnerHTML={{
             // https://github.com/pacocoursey/next-themes/issues/349
             __html: `

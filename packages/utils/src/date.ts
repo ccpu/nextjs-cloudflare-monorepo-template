@@ -15,8 +15,11 @@ export function formatDate(date: Date, options?: Intl.DateTimeFormatOptions): st
  * Get relative time string (e.g., "2 days ago")
  */
 export function getRelativeTime(date: Date): string {
+  const millisecondsPerSecond = 1000;
   const now = new Date();
-  const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+  const diffInSeconds = Math.floor(
+    (now.getTime() - date.getTime()) / millisecondsPerSecond,
+  );
 
   const intervals = [
     { label: 'year', seconds: 31536000 },
