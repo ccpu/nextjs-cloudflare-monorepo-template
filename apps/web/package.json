@@ -24,6 +24,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@internal/styles": "workspace:*",
     "@internal/ui": "workspace:*",
     "@internal/utils": "workspace:*",
     "@opennextjs/cloudflare": "catalog:next",
@@ -31,7 +32,6 @@
     "next-themes": "catalog:next",
     "react": "catalog:react",
     "react-dom": "catalog:react",
-    "tailwindcss-animated": "catalog:styling",
     "zod": "catalog:validation"
   },
   "devDependencies": {

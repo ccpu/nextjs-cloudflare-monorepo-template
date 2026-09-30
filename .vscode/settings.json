@@ -3,5 +3,5 @@
   "files.associations": {
     "*.css": "tailwindcss"
   },
-  "tailwindCSS.experimental.configFile": "apps/web/src/app/globals.css"
+  "tailwindCSS.experimental.configFile": "packages/styles/src/globals.css"
 }

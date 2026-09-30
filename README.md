@@ -149,6 +149,7 @@ For deployments to the default Cloudflare `worker.dev` subdomain, remove the cus
 ├── apps/
 │   └── web/                 # Next.js application
 ├── packages/
+│   ├── styles/              # Shared Tailwind entry (theme, @source list)
 │   ├── ui/                  # Shared React components
 │   ├── utils/               # Utility functions
 │   └── config/              # Shared configurations
@@ -171,6 +172,7 @@ pnpm test           # Run tests
 ## 📚 Documentation
 
 - [Web App](./apps/web/README.md) - Next.js application details
+- [Styles](./packages/styles/README.md) - Shared Tailwind theme
 - [UI Components](./packages/ui/README.md) - Shared components
 - [Utilities](./packages/utils/README.md) - Helper functions
 - [Configuration](./packages/config/README.md) - Shared configs
