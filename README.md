@@ -1,6 +1,6 @@
 # Next.js Cloudflare Monorepo Template
 
-A production-ready Next.js 15 monorepo template with Cloudflare Workers deployment, TypeScript, Tailwind CSS, and Turborepo for fast development and edge deployment.
+A production-ready Next.js 16 monorepo template with Cloudflare Workers deployment, TypeScript, Tailwind CSS, and Turborepo for fast development and edge deployment.
 
 ## 🌐 Live Example
 
@@ -10,14 +10,12 @@ See a working demo:
 
 ## ✨ Features
 
-- 🚀 **Next.js 15** with App Router
+- 🚀 **Next.js 16** with App Router
 - ☁️ **Cloudflare Workers** deployment ready
 - 📦 **Turborepo** for efficient builds and caching
 - 🔧 **pnpm Workspaces** for package management
 - 🎨 **Tailwind CSS** for styling
 - 📊 **TypeScript** throughout
-- 🗄️ **Drizzle ORM + D1** for database operations
-- 📈 **Page visit tracking** (optional, GDPR-friendly)
 - 🤖 **Automatic SEO** (sitemap, robots.txt, manifest)
 - 🧹 **ESLint & Prettier** configured
 - 📱 **PWA ready**
@@ -145,63 +143,7 @@ For deployments to the default Cloudflare `worker.dev` subdomain, remove the cus
 - [Cloudflare Docs: Custom Domains](https://developers.cloudflare.com/workers/platform/routes/)
 - [Cloudflare Docs: worker.dev](https://developers.cloudflare.com/workers/configuration/routing/workers-dev/)
 
-## 🗄️ Database Setup (Optional)
-
-This template includes optional **Drizzle ORM with Cloudflare D1** for privacy-friendly page visit tracking.
-
-**Note**: Visitor tracking is disabled by default. To enable it, see the "Enable Visitor Tracking" section below.
-
-### Create D1 Database
-
-```bash
-cd apps/web
-pnpm wrangler d1 create page-visits
-pnpm wrangler d1 migrations apply page-visits --remote
-```
-
-This returns a database ID. Copy it for the next step.
-
-### Update Configuration
-
-Update `apps/web/wrangler.jsonc`:
-
-```json
-{
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "page-visits",
-      "database_id": "YOUR_DATABASE_ID_HERE"
-    }
-  ]
-}
-```
-
-📖 **[See VISITOR_DATABASE_SETUP.md for complete setup instructions](./VISITOR_DATABASE_SETUP.md)**
-
-## 📈 Enable Visitor Tracking (Optional)
-
-Visitor tracking is disabled by default. To enable it:
-
-1. **Set up the database** (see Database Setup section above)
-2. **Enable the VisitTracker component** in `apps/web/src/app/layout.tsx`:
-
-   ```tsx
-   // Uncomment these lines:
-   import VisitTracker from '../components/VisitTracker';
-
-   // And in the JSX:
-   <VisitTracker />;
-   ```
-
-**Features when enabled:**
-
-- 📊 Page visit analytics at `/analytics`
-- 🛡️ GDPR-friendly (no personal data stored)
-- 🌍 Country-based visit tracking via CF headers
-- 🚀 Edge-optimized with D1 database
-
-## �📦 Project Structure
+## 📦 Project Structure
 
 ```
 ├── apps/
@@ -289,4 +231,4 @@ This project uses **pnpm**. Always use `pnpm` instead of `npm` or `yarn`.
 
 ---
 
-Ready to build something amazing? Start by editing `apps/web/src/app/page.tsx` 🚀
+Ready to build something amazing? Start by editing `apps/web/src/app/(marketing)/page.tsx` 🚀

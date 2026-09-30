@@ -1,16 +1,14 @@
 # Web App
 
-Next.js 15 app with Cloudflare Workers deployment, analytics, and optimized validation architecture.
+Next.js 16 app with Cloudflare Workers deployment.
 
 ## Features
 
-- **Next.js 15** with App Router
+- **Next.js 16** with App Router
 - **Tailwind CSS v4** styling with dark mode support
 - **tailwindcss-animated** - Pre-built animations for smooth UX
 - **Theme System** - Light, Dark, and System preference modes with next-themes
-- **Cloudflare D1** database with visit tracking
 - **next-sitemap** for automated sitemap and robots.txt generation
-- **Simplified validation** - Zod only at API boundaries
 - **TypeScript** throughout
 
 ## Development
@@ -35,20 +33,23 @@ The sitemap is automatically generated during the build process, or can be gener
 
 ## Routes
 
+Marketing pages live in the `(marketing)` route group, which adds the navbar, footer and theme toggle:
+
 - `/` - Home page
-- `/analytics` - Visit analytics dashboard
+- `/about` - About page
 - `/blog` - Blog pages
+- `/faq` - FAQ page
 - `/contact` - Contact page
-- `/api/visits` - Visit tracking API
 
 ## Structure
 
 ```
 src/
-├── app/           # App Router pages & API routes
-├── components/    # React components
-├── db/           # Drizzle schema & database
-└── lib/          # Services, repositories, hooks
+├── app/
+│   └── (marketing)/  # Public pages sharing the marketing layout
+├── components/
+│   └── marketing/    # Footer, FAQ accordion, button link
+└── lib/              # Page metadata helpers
 ```
 
 ## Configuration Files
@@ -56,7 +57,6 @@ src/
 - `site.config.js` - JavaScript version for build tools
 - `next-sitemap.config.js` - Sitemap generation configuration
 - `next.config.ts` - Next.js configuration with Cloudflare Workers support
-- `drizzle.config.ts` - Database configuration
 - `wrangler.jsonc` - Cloudflare Workers configuration with a placeholder custom domain that must be replaced before deployment
 
 ## Theme System
@@ -69,7 +69,7 @@ The app includes a comprehensive theme system built with `next-themes`:
 - **Persistent** - Remembers your choice across sessions
 - **Configurable** - Can be enabled/disabled via `site.config.ts`
 
-Toggle between themes using the button in the top-right corner, or cycle through Light → Dark → System modes.
+Toggle between themes using the button in the bottom-right corner, or cycle through Light → Dark → System modes.
 
 ## Animations
 

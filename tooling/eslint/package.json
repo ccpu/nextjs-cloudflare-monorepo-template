@@ -12,13 +12,14 @@
     "clean": "git clean -xdf .cache .turbo dist",
     "clean:all": "pnpm clean && git clean -xdf node_modules",
     "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore",
+    "lint": "eslint",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@pixpilot/eslint-config": "^3.0.0",
-    "@pixpilot/eslint-config-next": "^1.0.0",
-    "@pixpilot/eslint-config-react": "^0.10.1",
-    "eslint-plugin-turbo": "^2.11.5"
+    "@pixpilot/eslint-config": "catalog:",
+    "@pixpilot/eslint-config-next": "catalog:",
+    "@pixpilot/eslint-config-react": "catalog:",
+    "eslint-plugin-turbo": "catalog:"
   },
   "devDependencies": {
     "@internal/prettier-config": "workspace:*",

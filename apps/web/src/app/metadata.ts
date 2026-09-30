@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import siteConfig from '../../site.config';
+import { OG_IMAGES } from '../lib/page-metadata';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -9,6 +10,11 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: ['developer', 'portfolio', 'nextjs', 'react', 'typescript'],
+  // `./` resolves against each route's own pathname, so every page gets its own
+  // canonical URL without repeating it per page.
+  alternates: {
+    canonical: './',
+  },
   authors: [{ name: siteConfig.author.name, url: siteConfig.url }],
   creator: siteConfig.author.name,
   openGraph: {
@@ -18,23 +24,13 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [
-      {
-        // This image is used for Open Graph metadata. It controls the preview shown when your site is shared on social media, helping with branding and engagement.
-        url: '/og-image.svg',
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
+    images: OG_IMAGES,
   },
-  // twitter: {
-  //   card: "summary_large_image",
-  //   title: SITE_CONFIG.name,
-  //   description: SITE_CONFIG.description,
-  //   images: ["/og-image.svg"],
-  //   creator: "@internal",
-  // },
+  // Only the card type is set; Next fills title, description and image from
+  // each page's `openGraph` block.
+  twitter: {
+    card: 'summary_large_image',
+  },
   robots: {
     index: true,
     follow: true,

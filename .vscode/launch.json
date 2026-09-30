@@ -22,7 +22,7 @@
       "type": "node",
       "request": "launch",
       "program": "${workspaceFolder}/node_modules/next/dist/bin/next",
-      "args": ["dev", "--turbopack"],
+      "args": ["dev"],
       "runtimeArgs": ["--inspect"],
       "cwd": "${workspaceFolder}/apps/web",
       "skipFiles": ["<node_internals>/**"],
