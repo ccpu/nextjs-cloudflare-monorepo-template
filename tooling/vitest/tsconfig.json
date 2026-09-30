@@ -1,5 +1,5 @@
 {
   "extends": "@internal/tsconfig/internal-package.json",
-  "include": ["."],
+  "include": ["index.js", "lib.js", "react.js", "react.setup.ts"],
   "exclude": ["node_modules", "dist"]
 }

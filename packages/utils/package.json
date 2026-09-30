@@ -23,17 +23,17 @@
     "test:ui": "vitest --ui"
   },
   "dependencies": {
-    "clsx": "^2.1.1",
-    "tailwind-merge": "^3.7.0"
+    "clsx": "catalog:styling",
+    "tailwind-merge": "catalog:styling"
   },
   "devDependencies": {
     "@internal/eslint-config": "workspace:*",
     "@internal/prettier-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
     "@internal/vitest-config": "workspace:*",
-    "eslint": "catalog:dev",
-    "prettier": "catalog:dev",
-    "typescript": "catalog:dev"
+    "eslint": "catalog:tooling",
+    "prettier": "catalog:tooling",
+    "typescript": "catalog:tooling"
   },
   "prettier": "@internal/prettier-config"
 }
