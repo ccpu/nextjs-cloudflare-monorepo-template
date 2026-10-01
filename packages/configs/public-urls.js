@@ -4,7 +4,7 @@
  * from here, so pointing the template at a real domain is a one-line change.
  */
 export const siteBaseUrls = {
-  dev: 'localhost:3000',
+  dev: 'localhost:3001',
   prod: 'example.com',
 };
 
