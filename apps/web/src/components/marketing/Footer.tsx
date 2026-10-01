@@ -1,5 +1,5 @@
+import { appConfig } from '@internal/configs';
 import Link from 'next/link';
-import siteConfig from '../../../site.config';
 
 // Resolved when the module loads, which is build time for this static footer.
 const currentYear = new Date().getFullYear();
@@ -24,10 +24,10 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-2">
             <Link href="/" className="text-foreground text-lg font-bold">
-              {siteConfig.name}
+              {appConfig.name}
             </Link>
             <p className="text-muted-foreground mt-3 max-w-sm text-sm">
-              {siteConfig.description}
+              {appConfig.description}
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export function Footer() {
 
         <div className="border-border/50 mt-10 border-t pt-6 text-center">
           <p className="text-muted-foreground text-sm">
-            &copy; {currentYear} {siteConfig.name}. All rights reserved.
+            &copy; {currentYear} {appConfig.name}. All rights reserved.
           </p>
         </div>
       </div>

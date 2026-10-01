@@ -1,11 +1,11 @@
 'use client';
 
+import { appConfig } from '@internal/configs';
 import { cn } from '@internal/utils';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import siteConfig from '../../../site.config';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -36,7 +36,7 @@ export function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="text-foreground text-lg font-bold">
-          {siteConfig.name}
+          {appConfig.name}
         </Link>
 
         {/* Desktop nav links */}

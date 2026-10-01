@@ -16,10 +16,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@pixpilot/eslint-config": "catalog:",
-    "@pixpilot/eslint-config-next": "catalog:",
-    "@pixpilot/eslint-config-react": "catalog:",
-    "eslint-plugin-turbo": "catalog:"
+    "@pixpilot/eslint-config": "catalog:pixpilot",
+    "@pixpilot/eslint-config-next": "catalog:pixpilot",
+    "@pixpilot/eslint-config-react": "catalog:pixpilot",
+    "eslint-plugin-turbo": "catalog:tooling"
   },
   "devDependencies": {
     "@internal/prettier-config": "workspace:*",

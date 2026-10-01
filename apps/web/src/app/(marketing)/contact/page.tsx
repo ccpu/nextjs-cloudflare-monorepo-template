@@ -1,13 +1,13 @@
+import { appConfig } from '@internal/configs';
 import Link from 'next/link';
-import siteConfig from '../../../../site.config';
 import { createPageMetadata } from '../../../lib/page-metadata';
 
 export const metadata = createPageMetadata({
   title: 'Contact Us',
-  description: `Get in touch with the ${siteConfig.name} team.`,
+  description: `Get in touch with the ${appConfig.name} team.`,
 });
 
-const contactEmail = siteConfig.author.email;
+const contactEmail = appConfig.author.email;
 
 export default function ContactPage() {
   return (

@@ -12,19 +12,6 @@ catalogs:
     wrangler:
       specifier: ^4.135.0
       version: 4.135.0
-  default:
-    '@pixpilot/eslint-config':
-      specifier: ^3.0.0
-      version: 3.0.0
-    '@pixpilot/eslint-config-next':
-      specifier: ^1.0.0
-      version: 1.0.0
-    '@pixpilot/eslint-config-react':
-      specifier: ^0.10.1
-      version: 0.10.1
-    eslint-plugin-turbo:
-      specifier: ^2.11.5
-      version: 2.11.5
   next:
     '@opennextjs/cloudflare':
       specifier: ^1.20.7
@@ -40,11 +27,23 @@ catalogs:
       version: 0.4.6
   pixpilot:
     '@pixpilot/dev-config':
-      specifier: ^3.22.0
-      version: 3.22.0
+      specifier: ^3.22.1
+      version: 3.22.1
+    '@pixpilot/eslint-config':
+      specifier: ^3.0.0
+      version: 3.0.0
+    '@pixpilot/eslint-config-next':
+      specifier: ^1.0.0
+      version: 1.0.0
+    '@pixpilot/eslint-config-react':
+      specifier: ^0.10.1
+      version: 0.10.1
+    '@pixpilot/nextjs-test-utils':
+      specifier: ^1.0.1
+      version: 1.0.1
     '@pixpilot/workspace-package-generator':
-      specifier: ^1.1.1
-      version: 1.1.1
+      specifier: ^2.1.2
+      version: 2.1.2
   react:
     '@types/react':
       specifier: ^19.3.0
@@ -109,12 +108,15 @@ catalogs:
     '@turbo/gen':
       specifier: ^2.11.2
       version: 2.11.2
-    dotenv-cli:
-      specifier: ^10.0.0
-      version: 10.0.0
+    dotenv:
+      specifier: ^17.2.1
+      version: 17.2.1
     eslint:
       specifier: ^10.11.0
       version: 10.11.0
+    eslint-plugin-turbo:
+      specifier: ^2.11.5
+      version: 2.11.5
     husky:
       specifier: ^9.1.7
       version: 9.1.7
@@ -160,7 +162,7 @@ importers:
         version: link:tooling/prettier
       '@pixpilot/workspace-package-generator':
         specifier: catalog:pixpilot
-        version: 1.1.1
+        version: 2.1.2
       '@turbo/gen':
         specifier: catalog:tooling
         version: 2.11.2(@types/node@26.6.2)
@@ -194,6 +196,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@internal/configs':
+        specifier: workspace:*
+        version: link:../../packages/configs
       '@internal/styles':
         specifier: workspace:*
         version: link:../../packages/styles
@@ -237,6 +242,9 @@ importers:
       '@internal/vitest-config':
         specifier: workspace:*
         version: link:../../tooling/vitest
+      '@pixpilot/nextjs-test-utils':
+        specifier: catalog:pixpilot
+        version: 1.0.1
       '@tailwindcss/postcss':
         specifier: catalog:styling
         version: 4.3.3
@@ -252,9 +260,9 @@ importers:
       autoprefixer:
         specifier: catalog:styling
         version: 10.6.1(postcss@8.5.28)
-      dotenv-cli:
+      dotenv:
         specifier: catalog:tooling
-        version: 10.0.0
+        version: 17.2.1
       jiti:
         specifier: catalog:tooling
         version: 2.7.0
@@ -273,6 +281,30 @@ importers:
       wrangler:
         specifier: catalog:cloudflare
         version: 4.135.0(@cloudflare/workers-types@5.20260919.1)(@types/node@24.13.6)
+
+  packages/configs:
+    devDependencies:
+      '@internal/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint
+      '@internal/prettier-config':
+        specifier: workspace:*
+        version: link:../../tooling/prettier
+      '@internal/tsconfig':
+        specifier: workspace:*
+        version: link:../../tooling/typescript
+      '@internal/vitest-config':
+        specifier: workspace:*
+        version: link:../../tooling/vitest
+      eslint:
+        specifier: catalog:tooling
+        version: 10.11.0(jiti@2.7.0)
+      prettier:
+        specifier: catalog:tooling
+        version: 3.9.9
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
 
   packages/styles:
     dependencies:
@@ -310,7 +342,7 @@ importers:
         version: link:../../tooling/vitest
       '@pixpilot/dev-config':
         specifier: catalog:pixpilot
-        version: 3.22.0
+        version: 3.22.1
       '@types/react':
         specifier: catalog:react
         version: 19.3.0
@@ -361,16 +393,16 @@ importers:
   tooling/eslint:
     dependencies:
       '@pixpilot/eslint-config':
-        specifier: 'catalog:'
+        specifier: catalog:pixpilot
         version: 3.0.0(@eslint-react/eslint-plugin@5.20.2(eslint@10.11.0(jiti@2.7.0))(typescript@6.0.3))(@next/eslint-plugin-next@15.5.25)(@typescript-eslint/typescript-estree@8.70.0(typescript@6.0.3))(@typescript-eslint/utils@8.70.0(eslint@10.11.0(jiti@2.7.0))(typescript@6.0.3))(eslint-plugin-jsx-a11y@6.10.2(eslint@10.11.0(jiti@2.7.0)))(eslint-plugin-react-refresh@0.5.7(eslint@10.11.0(jiti@2.7.0)))(eslint-plugin-turbo@2.11.5(eslint@10.11.0(jiti@2.7.0))(turbo@2.11.2))(eslint@10.11.0(jiti@2.7.0))(ts-declaration-location@1.0.7(typescript@6.0.3))(typescript@6.0.3)(vitest@3.2.7)
       '@pixpilot/eslint-config-next':
-        specifier: 'catalog:'
+        specifier: catalog:pixpilot
         version: 1.0.0(@typescript-eslint/typescript-estree@8.70.0(typescript@6.0.3))(@typescript-eslint/utils@8.70.0(eslint@10.11.0(jiti@2.7.0))(typescript@6.0.3))(eslint-plugin-turbo@2.11.5(eslint@10.11.0(jiti@2.7.0))(turbo@2.11.2))(eslint@10.11.0(jiti@2.7.0))(ts-declaration-location@1.0.7(typescript@6.0.3))(typescript@6.0.3)(vitest@3.2.7)
       '@pixpilot/eslint-config-react':
-        specifier: 'catalog:'
+        specifier: catalog:pixpilot
         version: 0.10.1(@next/eslint-plugin-next@15.5.25)(@typescript-eslint/typescript-estree@8.70.0(typescript@6.0.3))(@typescript-eslint/utils@8.70.0(eslint@10.11.0(jiti@2.7.0))(typescript@6.0.3))(eslint-plugin-turbo@2.11.5(eslint@10.11.0(jiti@2.7.0))(turbo@2.11.2))(eslint@10.11.0(jiti@2.7.0))(ts-declaration-location@1.0.7(typescript@6.0.3))(typescript@6.0.3)(vitest@3.2.7)
       eslint-plugin-turbo:
-        specifier: 'catalog:'
+        specifier: catalog:tooling
         version: 2.11.5(eslint@10.11.0(jiti@2.7.0))(turbo@2.11.2)
     devDependencies:
       '@internal/prettier-config':
@@ -403,7 +435,7 @@ importers:
         version: link:../typescript
       '@pixpilot/dev-config':
         specifier: catalog:pixpilot
-        version: 3.22.0
+        version: 3.22.1
       '@types/node':
         specifier: ^24.13.6
         version: 24.13.6
@@ -415,7 +447,7 @@ importers:
     devDependencies:
       '@pixpilot/dev-config':
         specifier: catalog:pixpilot
-        version: 3.22.0
+        version: 3.22.1
 
   tooling/vitest:
     devDependencies:
@@ -427,7 +459,7 @@ importers:
         version: link:../typescript
       '@pixpilot/dev-config':
         specifier: catalog:pixpilot
-        version: 3.22.0
+        version: 3.22.1
       '@testing-library/dom':
         specifier: catalog:testing
         version: 10.4.2
@@ -2044,6 +2076,10 @@ packages:
     resolution: {integrity: sha512-BcSqCyKhBVZ5YkSzOiheMCV41kqAFptW6xGqYSTjkVTl9XQpr+pqHhwgGCOHQtjDCv7Is6EFyA14Sm5GVbVABA==}
     engines: {node: '>=20.0.0'}
 
+  '@manypkg/get-packages@3.1.0':
+    resolution: {integrity: sha512-0TbBVyvPrP7xGYBI/cP8UP+yl/z+HtbTttAD7FMAJgn/kXOTwh5/60TsqP9ZYY710forNfyV0N8P/IE/ujGZJg==}
+    engines: {node: '>=20.0.0'}
+
   '@manypkg/tools@2.1.0':
     resolution: {integrity: sha512-0FOIepYR4ugPYaHwK7hDeHDkfPOBVvayt9QpvRbi2LT/h2b0GaE/gM9Gag7fsnyYyNaTZ2IGyOuVg07IYepvYQ==}
     engines: {node: '>=20.0.0'}
@@ -2245,8 +2281,8 @@ packages:
       vue-eslint-parser:
         optional: true
 
-  '@pixpilot/dev-config@3.22.0':
-    resolution: {integrity: sha512-n8tx8Oz14I8Y3ugvngh8dTxqwVOsU0H0S5ygL1kd/fUf3UzVrIsmLgOfvVptYsCi4/2M7lxLXYw5B5qAAl3Y6Q==}
+  '@pixpilot/dev-config@3.22.1':
+    resolution: {integrity: sha512-/i3P8w+fk9WJ0+CXqdpihHDOQcG5NWejlWT9FPh5FXe0MJ3drBdDyP0g/AgcZbueDedhJdYcbkKCdUEyU0MEOw==}
 
   '@pixpilot/drizzle-config@0.3.0':
     resolution: {integrity: sha512-P8cFsG7zcGplAVA9M02N9wa+4ngmVoHESYl4JCIhEknwYSrJeR8co4jycuCjaN7NwTcHunMgTwlI418MOBujBg==}
@@ -2270,8 +2306,11 @@ packages:
       eslint-plugin-turbo:
         optional: true
 
-  '@pixpilot/workspace-package-generator@1.1.1':
-    resolution: {integrity: sha512-HnLHqdQDhOF8HgWGb6D/lfFJnsCMYbNwXpyJriYgjNR0RzqRXi3VJbqxdX3mWg3zZk2aX4Jom4bvyQyjcaJ/Nw==}
+  '@pixpilot/nextjs-test-utils@1.0.1':
+    resolution: {integrity: sha512-XS52xupt7iJhpCn7pnJOojPllghGaUqdXrMev6DauQPURmvpnTluwxt9B5EZP20SgUQucmXjqrzk47u7JMGreQ==}
+
+  '@pixpilot/workspace-package-generator@2.1.2':
+    resolution: {integrity: sha512-3w/3XGWgpMLH3lw1RyouDzzu4lXZMh+3cKs/rcrGbG7PU43lnQ10rPYivThMUPZ7O7cHrsYytjgWWcjf1sUSLg==}
     deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   '@pkgjs/parseargs@0.11.0':
@@ -3417,14 +3456,6 @@ packages:
   dot-prop@5.3.0:
     resolution: {integrity: sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==}
     engines: {node: '>=8'}
-
-  dotenv-cli@10.0.0:
-    resolution: {integrity: sha512-lnOnttzfrzkRx2echxJHQRB6vOAMSCzzZg79IxpC00tU42wZPuZkQxNNrrwVAxaQZIIh001l4PxVlCrBxngBzA==}
-    hasBin: true
-
-  dotenv-expand@11.0.7:
-    resolution: {integrity: sha512-zIHwmZPRshsCdpMDyVsqGmgyP0yT8GAgXUnkdAoJisxvf33k7yO6OuoKmcTGuXPWSsm8Oh88nZicRLA9Y0rUeA==}
-    engines: {node: '>=12'}
 
   dotenv@16.0.3:
     resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
@@ -7677,6 +7708,11 @@ snapshots:
     dependencies:
       '@manypkg/tools': 2.1.0
 
+  '@manypkg/get-packages@3.1.0':
+    dependencies:
+      '@manypkg/find-root': 3.1.0
+      '@manypkg/tools': 2.1.0
+
   '@manypkg/tools@2.1.0':
     dependencies:
       jju: 1.4.0
@@ -7844,7 +7880,7 @@ snapshots:
       - typescript
       - vitest
 
-  '@pixpilot/dev-config@3.22.0': {}
+  '@pixpilot/dev-config@3.22.1': {}
 
   '@pixpilot/drizzle-config@0.3.0(eslint@10.11.0(jiti@2.7.0))':
     dependencies:
@@ -7969,9 +8005,12 @@ snapshots:
       - vitest
       - vue-eslint-parser
 
-  '@pixpilot/workspace-package-generator@1.1.1':
+  '@pixpilot/nextjs-test-utils@1.0.1': {}
+
+  '@pixpilot/workspace-package-generator@2.1.2':
     dependencies:
       '@manypkg/find-root': 3.1.0
+      '@manypkg/get-packages': 3.1.0
       change-case: 5.4.4
       yaml: 2.9.1
 
@@ -9117,17 +9156,6 @@ snapshots:
   dot-prop@5.3.0:
     dependencies:
       is-obj: 2.0.0
-
-  dotenv-cli@10.0.0:
-    dependencies:
-      cross-spawn: 7.0.6
-      dotenv: 17.2.1
-      dotenv-expand: 11.0.7
-      minimist: 1.2.8
-
-  dotenv-expand@11.0.7:
-    dependencies:
-      dotenv: 16.6.1
 
   dotenv@16.0.3: {}
 

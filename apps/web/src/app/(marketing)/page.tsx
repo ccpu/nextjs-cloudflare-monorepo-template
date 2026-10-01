@@ -1,15 +1,15 @@
+import { appConfig } from '@internal/configs';
 import Link from 'next/link';
-import siteConfig from '../../../site.config';
 import { ButtonLink, FaqAccordion, homeFaq } from '../../components/marketing';
 import { createPageMetadata } from '../../lib/page-metadata';
 
 export const metadata = {
   ...createPageMetadata({
-    title: siteConfig.name,
-    description: siteConfig.description,
+    title: appConfig.name,
+    description: appConfig.description,
   }),
   // The title is the brand itself, so skip the root `%s | Name` template.
-  title: { absolute: siteConfig.name },
+  title: { absolute: appConfig.name },
 };
 
 interface Feature {
@@ -55,7 +55,7 @@ const steps: Step[] = [
   {
     step: '2',
     title: 'Configure the site',
-    description: 'Set the name, URL and theme in site.config.js.',
+    description: 'Set the name, URL and theme in packages/configs.',
   },
   {
     step: '3',
@@ -80,9 +80,9 @@ export default function LandingPage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'WebSite',
-            name: siteConfig.name,
-            url: siteConfig.url,
-            description: siteConfig.description,
+            name: appConfig.name,
+            url: appConfig.siteUrl,
+            description: appConfig.description,
           }),
         }}
       />
@@ -91,10 +91,10 @@ export default function LandingPage() {
       <section className="relative overflow-hidden px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
         <div className="animate-fade-up mx-auto max-w-4xl text-center">
           <h1 className="text-foreground text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-            {siteConfig.name}
+            {appConfig.name}
           </h1>
           <p className="text-muted-foreground mx-auto mt-6 max-w-2xl text-lg sm:text-xl">
-            {siteConfig.description}
+            {appConfig.description}
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <ButtonLink href="#features" size="lg" className="w-[200px]">

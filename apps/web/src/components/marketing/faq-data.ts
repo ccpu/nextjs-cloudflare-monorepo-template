@@ -1,4 +1,4 @@
-import siteConfig from '../../../site.config';
+import { appConfig } from '@internal/configs';
 
 export interface FaqItem {
   question: string;
@@ -12,8 +12,8 @@ export interface FaqCategory {
 
 export const gettingStartedFaq: FaqItem[] = [
   {
-    question: `What is ${siteConfig.name}?`,
-    answer: siteConfig.description,
+    question: `What is ${appConfig.name}?`,
+    answer: appConfig.description,
   },
   {
     question: 'How do I get started?',

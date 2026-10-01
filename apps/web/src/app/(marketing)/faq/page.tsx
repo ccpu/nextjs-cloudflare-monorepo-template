@@ -1,11 +1,11 @@
+import { appConfig } from '@internal/configs';
 import Link from 'next/link';
-import siteConfig from '../../../../site.config';
 import { ButtonLink, FaqAccordion, faqCategories } from '../../../components/marketing';
 import { createPageMetadata } from '../../../lib/page-metadata';
 
 export const metadata = createPageMetadata({
   title: 'Frequently Asked Questions',
-  description: `Find answers to common questions about ${siteConfig.name}.`,
+  description: `Find answers to common questions about ${appConfig.name}.`,
 });
 
 export default function FaqPage() {

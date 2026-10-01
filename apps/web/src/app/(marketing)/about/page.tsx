@@ -1,11 +1,11 @@
+import { appConfig } from '@internal/configs';
 import Link from 'next/link';
-import siteConfig from '../../../../site.config';
 import { ButtonLink } from '../../../components/marketing';
 import { createPageMetadata } from '../../../lib/page-metadata';
 
 export const metadata = createPageMetadata({
-  title: `About ${siteConfig.name}`,
-  description: `Learn about ${siteConfig.name}, our mission and what we stand for.`,
+  title: `About ${appConfig.name}`,
+  description: `Learn about ${appConfig.name}, our mission and what we stand for.`,
 });
 
 const values = [
@@ -24,10 +24,10 @@ export default function AboutPage() {
     <main className="px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
       <article className="mx-auto max-w-3xl">
         <h1 className="text-foreground text-4xl font-extrabold tracking-tight sm:text-5xl">
-          About {siteConfig.name}
+          About {appConfig.name}
         </h1>
         <p className="text-muted-foreground mt-6 text-lg leading-relaxed">
-          {siteConfig.description}
+          {appConfig.description}
         </p>
 
         <section className="mt-12">
@@ -60,7 +60,7 @@ export default function AboutPage() {
 
         <div className="border-border/50 bg-muted/30 mt-16 rounded-xl border p-8 text-center">
           <h2 className="text-foreground text-2xl font-bold">
-            Ready to Try {siteConfig.name}?
+            Ready to Try {appConfig.name}?
           </h2>
           <ButtonLink href="/" size="lg" className="mt-6">
             Get started

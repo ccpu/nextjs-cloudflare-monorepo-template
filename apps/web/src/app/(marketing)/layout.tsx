@@ -1,4 +1,4 @@
-import siteConfig from '../../../site.config';
+import { appConfig } from '@internal/configs';
 import { Footer } from '../../components/marketing';
 import { ThemeToggle } from '../../components/ThemeToggle';
 import { Navbar } from './Navbar';
@@ -8,7 +8,7 @@ interface MarketingLayoutProps {
 }
 
 export default function MarketingLayout({ children }: MarketingLayoutProps) {
-  const isThemeEnabled = siteConfig.theme?.enabled !== false;
+  const isThemeEnabled = appConfig.theme?.enabled !== false;
 
   return (
     <>

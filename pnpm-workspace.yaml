@@ -49,7 +49,8 @@ catalogs:
     '@commitlint/config-conventional': ^19.8.1
     '@turbo/gen': ^2.11.2
     '@types/node': ^24.13.6
-    dotenv-cli: ^10.0.0
+    dotenv: ^17.2.1
+    eslint-plugin-turbo: ^2.11.5
     eslint: ^10.11.0
     husky: ^9.1.7
     jiti: ^2.7.0
@@ -60,14 +61,13 @@ catalogs:
     typescript: ^6.0.3
 
   pixpilot:
-    '@pixpilot/dev-config': ^3.22.0
-    '@pixpilot/workspace-package-generator': ^1.1.1
+    '@pixpilot/dev-config': ^3.22.1
+    '@pixpilot/eslint-config': ^3.0.0
+    '@pixpilot/eslint-config-next': ^1.0.0
+    '@pixpilot/eslint-config-react': ^0.10.1
+    '@pixpilot/nextjs-test-utils': ^1.0.1
+    '@pixpilot/workspace-package-generator': ^2.1.2
 
 overrides:
   '@types/node': catalog:tooling
   typescript: catalog:tooling
-catalog:
-  '@pixpilot/eslint-config': ^3.0.0
-  '@pixpilot/eslint-config-next': ^1.0.0
-  '@pixpilot/eslint-config-react': ^0.10.1
-  eslint-plugin-turbo: ^2.11.5

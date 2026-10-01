@@ -1,0 +1,55 @@
+{
+  "name": "@internal/configs",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./app-config-public": {
+      "types": "./app-config-public.d.ts",
+      "default": "./app-config-public.js"
+    },
+    "./public-urls": {
+      "types": "./public-urls.d.ts",
+      "default": "./public-urls.js"
+    },
+    "./require-public-env": {
+      "types": "./require-public-env.d.ts",
+      "default": "./require-public-env.js"
+    },
+    "./server.env": {
+      "types": "./server.env.d.ts",
+      "default": "./server.env.js"
+    },
+    "./site-routes": {
+      "types": "./site-routes.d.ts",
+      "default": "./site-routes.js"
+    }
+  },
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo",
+    "clean:all": "pnpm clean && git clean -xdf node_modules",
+    "format": "prettier --check . --ignore-path ../../.gitignore --ignore-path ../../.prettierignore",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest --run",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui"
+  },
+  "devDependencies": {
+    "@internal/eslint-config": "workspace:*",
+    "@internal/prettier-config": "workspace:*",
+    "@internal/tsconfig": "workspace:*",
+    "@internal/vitest-config": "workspace:*",
+    "eslint": "catalog:tooling",
+    "prettier": "catalog:tooling",
+    "typescript": "catalog:tooling"
+  },
+  "prettier": "@internal/prettier-config"
+}

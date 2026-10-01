@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import { cn } from '@internal/utils';
+import { appConfig } from '@internal/configs';
 
+import { cn } from '@internal/utils';
 import { Geist, Geist_Mono } from 'next/font/google';
-import siteConfig from '../../site.config';
 import { ThemeProvider } from '../components/ThemeProvider';
 
 import { metadata as siteMetadata } from './metadata';
@@ -25,11 +25,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const defaultTheme = siteConfig.theme?.defaultTheme ?? 'system';
+  const defaultTheme = appConfig.theme?.defaultTheme ?? 'system';
 
   return (
     <html
-      lang="en"
+      lang={appConfig.locale}
       className={cn(geistSans.variable, geistMono.variable, defaultTheme)}
       suppressHydrationWarning
     >

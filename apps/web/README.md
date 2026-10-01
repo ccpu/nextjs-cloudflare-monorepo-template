@@ -54,7 +54,8 @@ src/
 
 ## Configuration Files
 
-- `site.config.js` - JavaScript version for build tools
+- `@internal/configs` (`packages/configs`) - Shared app config, route manifest and env checks
+- `run-with-root-env.mjs` / `load-root-env.mjs` - Load the repository-root `.env.local` and `.env` (`pnpm with-env <cmd>`)
 - `next-sitemap.config.js` - Sitemap generation configuration
 - `next.config.ts` - Next.js configuration with Cloudflare Workers support
 - `wrangler.jsonc` - Cloudflare Workers configuration with a placeholder custom domain that must be replaced before deployment
@@ -67,7 +68,7 @@ The app includes a comprehensive theme system built with `next-themes`:
 - **Dark Mode** - Comfortable for low-light environments
 - **System Mode** - Automatically follows your OS preference
 - **Persistent** - Remembers your choice across sessions
-- **Configurable** - Can be enabled/disabled via `site.config.ts`
+- **Configurable** - Can be enabled/disabled via `theme` in `packages/configs/app-config-public.js`
 
 Toggle between themes using the button in the bottom-right corner, or cycle through Light → Dark → System modes.
 

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import siteConfig from '../../site.config';
+import { appConfig } from '@internal/configs';
 
 /**
  * The Open Graph card every page shares.
@@ -9,10 +9,10 @@ import siteConfig from '../../site.config';
  */
 export const OG_IMAGES = [
   {
-    url: '/og-image.svg',
+    url: appConfig.ogImage,
     width: 1200,
     height: 630,
-    alt: siteConfig.name,
+    alt: appConfig.name,
   },
 ];
 

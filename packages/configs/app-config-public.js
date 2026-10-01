@@ -1,0 +1,44 @@
+/** @typedef {import("./app-config-public").AppConfig} AppConfig */
+
+import { getSiteBaseUrl } from './public-urls.js';
+
+// eslint-disable-next-line no-restricted-properties, node/prefer-global/process
+const isDev = process.env.NODE_ENV === 'development';
+
+const siteBaseUrl = getSiteBaseUrl();
+const isLocalDevHost = /^(?:localhost|127(?:\.\d{1,3}){3})(?::\d+)?$/u.test(siteBaseUrl);
+const siteProtocol = isDev && isLocalDevHost ? 'http' : 'https';
+const siteUrl = `${siteProtocol}://${siteBaseUrl}`;
+
+/**
+ * Public app configuration shared by every app in the workspace.
+ *
+ * Keep it framework-agnostic: values here may be read by the Next.js site, a
+ * browser extension or a build script alike. Framework-specific settings
+ * (robots directives, icons, search-console verification) belong in the app
+ * that uses them. This module ships in client bundles, so never add secrets
+ * or server-only values here - those go in `server.env.js`.
+ * @type {AppConfig}
+ */
+export const appConfig = {
+  isDev,
+  name: 'Coundflare Next.js Monorepo Template',
+  description:
+    'A starter template for building Next.js applications with Cloudflare Workers in a monorepo setup using Turborepo and PNPM.',
+  keywords: ['developer', 'portfolio', 'nextjs', 'react', 'typescript'],
+  locale: 'en-US',
+  siteUrl,
+  siteBaseUrl,
+  ogImage: `${siteUrl}/og-image.svg`,
+  author: {
+    name: 'Author Name',
+    email: 'Author Email',
+    url: siteUrl,
+  },
+  theme: {
+    enabled: true, // Set to false to disable theme switching
+    defaultTheme: 'system', // 'light', 'dark', or 'system'
+  },
+};
+
+export default appConfig;
