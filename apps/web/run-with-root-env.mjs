@@ -1,7 +1,9 @@
 import { spawnSync } from 'node:child_process';
 import process from 'node:process';
 
-import './load-root-env.mjs';
+import { loadRootEnvFiles } from '@pixpilot/env/node';
+
+loadRootEnvFiles({ from: import.meta.url });
 
 const args = process.argv.slice(2);
 

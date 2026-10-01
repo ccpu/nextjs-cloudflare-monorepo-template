@@ -55,7 +55,7 @@ src/
 ## Configuration Files
 
 - `@internal/configs` (`packages/configs`) - Shared app config, route manifest and env checks
-- `run-with-root-env.mjs` / `load-root-env.mjs` - Load the repository-root `.env.local` and `.env` (`pnpm with-env <cmd>`)
+- `run-with-root-env.mjs` - Runs a command with the repository-root `.env.local` and `.env` loaded (`pnpm with-env <cmd>`)
 - `next-sitemap.config.js` - Sitemap generation configuration
 - `next.config.ts` - Next.js configuration with Cloudflare Workers support
 - `wrangler.jsonc` - Cloudflare Workers configuration with a placeholder custom domain that must be replaced before deployment
