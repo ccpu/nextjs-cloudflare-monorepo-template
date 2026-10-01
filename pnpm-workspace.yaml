@@ -66,6 +66,7 @@ catalogs:
     '@pixpilot/eslint-config-next': ^1.0.0
     '@pixpilot/eslint-config-react': ^0.10.1
     '@pixpilot/next-env': ^0.4.0
+    '@pixpilot/next-security-headers': ^0.3.0
     '@pixpilot/next-test-utils': ^1.1.0
     '@pixpilot/workspace-package-generator': ^2.1.2
 

@@ -4,6 +4,7 @@ import { assertPublicEnv } from '@internal/configs/require-public-env';
 // added by create cloudflare to enable calling `getCloudflareContext()` in `next dev`
 import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare';
 import { setupRootEnv } from '@pixpilot/next-env';
+import { createSecurityHeaders } from '@pixpilot/next-security-headers';
 
 // eslint-disable-next-line no-restricted-properties, node/prefer-global/process
 const isDev = process.env.NODE_ENV === 'development';
@@ -29,6 +30,16 @@ assertPublicEnv(process.env, `apps/web (${isDev ? 'next dev' : 'next build'})`);
 
 const nextConfig: NextConfig = {
   output: 'standalone',
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        // Extend the CSP via `contentSecurityPolicy.directives` when adding
+        // third-party origins (APIs, analytics, image hosts).
+        headers: createSecurityHeaders({ isDev }),
+      },
+    ];
+  },
 };
 
 // 🔒 SAFETY CHECK: Only run this simulation in development

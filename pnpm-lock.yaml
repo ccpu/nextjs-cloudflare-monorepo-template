@@ -44,6 +44,9 @@ catalogs:
     '@pixpilot/next-env':
       specifier: ^0.4.0
       version: 0.4.0
+    '@pixpilot/next-security-headers':
+      specifier: ^0.3.0
+      version: 0.3.0
     '@pixpilot/next-test-utils':
       specifier: ^1.1.0
       version: 1.1.0
@@ -251,6 +254,9 @@ importers:
       '@pixpilot/next-env':
         specifier: catalog:pixpilot
         version: 0.4.0
+      '@pixpilot/next-security-headers':
+        specifier: catalog:pixpilot
+        version: 0.3.0
       '@pixpilot/next-test-utils':
         specifier: catalog:pixpilot
         version: 1.1.0
@@ -2320,6 +2326,9 @@ packages:
 
   '@pixpilot/next-env@0.4.0':
     resolution: {integrity: sha512-r8hYQuS7qhaUqhL6gptiF31EIgcPWjvXluLidEDoc+qqH+zrAkEtctbCvZzGzIZBMwyI/maw8EU1XIeWEJzCIQ==}
+
+  '@pixpilot/next-security-headers@0.3.0':
+    resolution: {integrity: sha512-EoHsqP+MPVmyhB0Ihj3/QVJcvivTBo4O4PEtwwgAffvmooTCN98NEK5Gn/PvTsYjLVJr5yOmOYL4/esg2SIO1w==}
 
   '@pixpilot/next-test-utils@1.1.0':
     resolution: {integrity: sha512-S6Pe4Vt+1ObEzH1vi374bmEtupywKlhwymVz9m2tGa4FPiaOobXo1bc3jqikCKZzhmTa7w6jhsEKUHe6j7FliA==}
@@ -8025,6 +8034,8 @@ snapshots:
   '@pixpilot/next-env@0.4.0':
     dependencies:
       '@pixpilot/env': 1.3.0
+
+  '@pixpilot/next-security-headers@0.3.0': {}
 
   '@pixpilot/next-test-utils@1.1.0': {}
 
