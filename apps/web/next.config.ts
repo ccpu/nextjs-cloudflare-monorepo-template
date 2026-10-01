@@ -3,7 +3,7 @@ import type { NextConfig } from 'next';
 import { assertPublicEnv } from '@internal/configs/require-public-env';
 // added by create cloudflare to enable calling `getCloudflareContext()` in `next dev`
 import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare';
-import { setupRootEnv } from '@pixpilot/nextjs-env';
+import { setupRootEnv } from '@pixpilot/next-env';
 
 // eslint-disable-next-line no-restricted-properties, node/prefer-global/process
 const isDev = process.env.NODE_ENV === 'development';

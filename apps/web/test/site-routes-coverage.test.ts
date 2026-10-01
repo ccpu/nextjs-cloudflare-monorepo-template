@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { matchRoute } from '@internal/configs/site-routes';
-import { analyzeAppRoutes } from '@pixpilot/nextjs-test-utils';
+import { analyzeAppRoutes } from '@pixpilot/next-test-utils';
 import { describe, expect, it } from 'vitest';
 
 const appDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../src/app');

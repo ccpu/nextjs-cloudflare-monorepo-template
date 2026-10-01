@@ -41,12 +41,12 @@ catalogs:
     '@pixpilot/eslint-config-react':
       specifier: ^0.10.1
       version: 0.10.1
-    '@pixpilot/nextjs-env':
-      specifier: ^0.1.0
-      version: 0.1.0
-    '@pixpilot/nextjs-test-utils':
-      specifier: ^1.0.1
-      version: 1.0.1
+    '@pixpilot/next-env':
+      specifier: ^0.4.0
+      version: 0.4.0
+    '@pixpilot/next-test-utils':
+      specifier: ^1.1.0
+      version: 1.1.0
     '@pixpilot/workspace-package-generator':
       specifier: ^2.1.2
       version: 2.1.2
@@ -248,12 +248,12 @@ importers:
       '@pixpilot/env':
         specifier: catalog:pixpilot
         version: 1.3.0
-      '@pixpilot/nextjs-env':
+      '@pixpilot/next-env':
         specifier: catalog:pixpilot
-        version: 0.1.0
-      '@pixpilot/nextjs-test-utils':
+        version: 0.4.0
+      '@pixpilot/next-test-utils':
         specifier: catalog:pixpilot
-        version: 1.0.1
+        version: 1.1.0
       '@tailwindcss/postcss':
         specifier: catalog:styling
         version: 4.3.3
@@ -2318,11 +2318,11 @@ packages:
   '@pixpilot/fs@0.3.0':
     resolution: {integrity: sha512-SG9LEtIAxLG9VBVIMpV9hmQs0Zh2fkOvNlW9yihCr1ESdvVi34uppv92Wk3R/r1glv6HSh26qFac0M0pa3u7Sw==}
 
-  '@pixpilot/nextjs-env@0.1.0':
-    resolution: {integrity: sha512-NRs0DZMa2eBV1TSW9Ag0etHFu1+gUsjuBqWHQT/MFYU2gbrMrzN5Bs9U9VGH5WzW7jntlDhPmTL8NPbhxGh12A==}
+  '@pixpilot/next-env@0.4.0':
+    resolution: {integrity: sha512-r8hYQuS7qhaUqhL6gptiF31EIgcPWjvXluLidEDoc+qqH+zrAkEtctbCvZzGzIZBMwyI/maw8EU1XIeWEJzCIQ==}
 
-  '@pixpilot/nextjs-test-utils@1.0.1':
-    resolution: {integrity: sha512-XS52xupt7iJhpCn7pnJOojPllghGaUqdXrMev6DauQPURmvpnTluwxt9B5EZP20SgUQucmXjqrzk47u7JMGreQ==}
+  '@pixpilot/next-test-utils@1.1.0':
+    resolution: {integrity: sha512-S6Pe4Vt+1ObEzH1vi374bmEtupywKlhwymVz9m2tGa4FPiaOobXo1bc3jqikCKZzhmTa7w6jhsEKUHe6j7FliA==}
 
   '@pixpilot/workspace-package-generator@2.1.2':
     resolution: {integrity: sha512-3w/3XGWgpMLH3lw1RyouDzzu4lXZMh+3cKs/rcrGbG7PU43lnQ10rPYivThMUPZ7O7cHrsYytjgWWcjf1sUSLg==}
@@ -8022,11 +8022,11 @@ snapshots:
 
   '@pixpilot/fs@0.3.0': {}
 
-  '@pixpilot/nextjs-env@0.1.0':
+  '@pixpilot/next-env@0.4.0':
     dependencies:
       '@pixpilot/env': 1.3.0
 
-  '@pixpilot/nextjs-test-utils@1.0.1': {}
+  '@pixpilot/next-test-utils@1.1.0': {}
 
   '@pixpilot/workspace-package-generator@2.1.2':
     dependencies:
