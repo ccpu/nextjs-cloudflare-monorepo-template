@@ -8,7 +8,7 @@ export interface AppConfig {
   locale: string;
   /** Origin with protocol and no trailing slash, e.g. `https://example.com`. */
   siteUrl: string;
-  /** Host without protocol, e.g. `example.com` or `localhost:3000`. */
+  /** Host without protocol, e.g. `example.com` or `localhost:3001`. */
   siteBaseUrl: string;
   /** Absolute URL of the default social preview image. */
   ogImage: string;

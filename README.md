@@ -43,7 +43,7 @@ with `SKIP_SETUP_CHECK=1`.
 pnpm web:dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view your app.
+Open [http://localhost:3001](http://localhost:3001) to view your app.
 
 ### 3. Deploy to Cloudflare
 
