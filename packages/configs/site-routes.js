@@ -25,6 +25,8 @@ export const siteRoutes = [
   { path: '/blog', access: 'public', indexable: true },
   { path: '/contact', access: 'public', indexable: true },
   { path: '/faq', access: 'public', indexable: true },
+  // Shared recovery pages must remain accessible when signed out.
+  { path: '/error', access: 'public', indexable: false },
   // Public resources, excluded from the sitemap.
   { path: '/og.png', access: 'public', indexable: false },
   { path: '/security.txt', access: 'public', indexable: false },
