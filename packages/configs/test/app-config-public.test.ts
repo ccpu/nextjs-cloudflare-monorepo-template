@@ -24,6 +24,6 @@ describe('appConfig', () => {
 
     expect(appConfig.isDev).toBe(false);
     expect(appConfig.siteUrl).toBe(`https://${siteBaseUrls.prod}`);
-    expect(appConfig.ogImage).toBe(`https://${siteBaseUrls.prod}/og-image.svg`);
+    expect(appConfig.ogImage).toBe(`https://${siteBaseUrls.prod}/og.png`);
   });
 });

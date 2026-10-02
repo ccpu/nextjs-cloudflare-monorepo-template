@@ -25,6 +25,10 @@ export const siteRoutes = [
   { path: '/blog', access: 'public', indexable: true },
   { path: '/contact', access: 'public', indexable: true },
   { path: '/faq', access: 'public', indexable: true },
+  // Public resources, excluded from the sitemap.
+  { path: '/og.png', access: 'public', indexable: false },
+  { path: '/security.txt', access: 'public', indexable: false },
+  { path: '/.well-known/security.txt', access: 'public', indexable: false },
 ];
 
 /*

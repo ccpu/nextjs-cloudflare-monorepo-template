@@ -29,7 +29,11 @@ export const appConfig = {
   locale: 'en-US',
   siteUrl,
   siteBaseUrl,
-  ogImage: `${siteUrl}/og-image.svg`,
+  ogImage: `${siteUrl}/og.png`,
+  security: {
+    // Replace with a monitored mailto: URI if you use a dedicated security inbox.
+    contact: `${siteUrl}/contact`,
+  },
   author: {
     name: 'Author Name',
     email: 'Author Email',

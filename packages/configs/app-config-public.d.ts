@@ -12,6 +12,12 @@ export interface AppConfig {
   siteBaseUrl: string;
   /** Absolute URL of the default social preview image. */
   ogImage: string;
+  security: {
+    /** Reporting URI: an HTTPS contact page or a monitored mailto: address. */
+    contact: string;
+    /** HTTPS disclosure policy URL; omit until a policy page exists. */
+    policyUrl?: string;
+  };
   author: {
     name: string;
     email: string;

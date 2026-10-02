@@ -30,6 +30,9 @@ assertPublicEnv(process.env, `apps/web (${isDev ? 'next dev' : 'next build'})`);
 
 const nextConfig: NextConfig = {
   output: 'standalone',
+  rewrites() {
+    return [{ source: '/.well-known/security.txt', destination: '/security.txt' }];
+  },
   async headers() {
     return [
       {
