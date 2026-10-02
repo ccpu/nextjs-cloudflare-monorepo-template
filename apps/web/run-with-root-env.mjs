@@ -5,7 +5,7 @@ import { loadRootEnvFiles } from '@pixpilot/env/node';
 
 loadRootEnvFiles({ from: import.meta.url });
 
-const args = process.argv.slice(2);
+const [, , ...args] = process.argv;
 
 if (args[0] === '--') {
   args.shift();

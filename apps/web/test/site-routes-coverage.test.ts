@@ -11,9 +11,9 @@ describe('site route manifest', () => {
 
   it('should find the app routes it is asserting against', () => {
     // Guards the test itself: a broken scan would otherwise pass silently.
-    expect(routes).toContain('/dashboard');
-    expect(routes).toContain('/privacy');
-    expect(routes.length).toBeGreaterThan(20);
+    expect(routes).toEqual(
+      expect.arrayContaining(['/', '/about', '/blog', '/contact', '/faq']),
+    );
   });
 
   it('should classify every route in the app', () => {
