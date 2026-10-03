@@ -2,7 +2,7 @@
 
 Centralized, framework-agnostic configuration shared by every app in the workspace (the Next.js site, a browser extension, build scripts).
 
-Plain JavaScript with hand-written `.d.ts` files, so build tools such as `next-sitemap.config.js` can import it without a compile step.
+Plain JavaScript with hand-written `.d.ts` files in `src/`, so build tools such as `next-sitemap.config.js` can import it without a compile step.
 
 ## Entry points
 
@@ -16,7 +16,7 @@ Plain JavaScript with hand-written `.d.ts` files, so build tools such as `next-s
 
 ## Rules
 
-- `appConfig` ships in client bundles: never put secrets in it. Server-only values go in `server.env.js`.
+- `appConfig` ships in client bundles: never put secrets in it. Server-only values go in `src/server.env.js`.
 - Keep framework-specific settings (Next.js robots, icons, search-console verification) in the app that uses them.
-- Every page in `apps/web` needs an entry in `site-routes.js`; `apps/web/test/site-routes-coverage.test.ts` fails otherwise.
-- Point the template at your domain by editing `siteBaseUrls.prod` in `public-urls.js`.
+- Every page in `apps/web` needs an entry in `src/site-routes.js`; `apps/web/test/site-routes-coverage.test.ts` fails otherwise.
+- Point the template at your domain by editing `siteBaseUrls.prod` in `src/public-urls.js`.

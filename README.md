@@ -175,7 +175,7 @@ pnpm test           # Run tests
 - [Styles](./packages/styles/README.md) - Shared Tailwind theme
 - [UI Components](./packages/ui/README.md) - Shared components
 - [Utilities](./packages/utils/README.md) - Helper functions
-- [Configuration](./packages/config/README.md) - Shared configs
+- [Configuration](./packages/configs/README.md) - Shared configs
 
 ## 🔧 Development Notes
 

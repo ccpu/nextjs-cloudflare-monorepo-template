@@ -6,32 +6,32 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "types": "./index.d.ts",
-      "default": "./index.js"
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
     },
     "./app-config-public": {
-      "types": "./app-config-public.d.ts",
-      "default": "./app-config-public.js"
+      "types": "./src/app-config-public.d.ts",
+      "default": "./src/app-config-public.js"
     },
     "./public-urls": {
-      "types": "./public-urls.d.ts",
-      "default": "./public-urls.js"
+      "types": "./src/public-urls.d.ts",
+      "default": "./src/public-urls.js"
     },
     "./require-public-env": {
-      "types": "./require-public-env.d.ts",
-      "default": "./require-public-env.js"
+      "types": "./src/require-public-env.d.ts",
+      "default": "./src/require-public-env.js"
     },
     "./server.env": {
-      "types": "./server.env.d.ts",
-      "default": "./server.env.js"
+      "types": "./src/server.env.d.ts",
+      "default": "./src/server.env.js"
     },
     "./site-routes": {
-      "types": "./site-routes.d.ts",
-      "default": "./site-routes.js"
+      "types": "./src/site-routes.d.ts",
+      "default": "./src/site-routes.js"
     }
   },
-  "main": "./index.js",
-  "types": "./index.d.ts",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
   "scripts": {
     "clean": "git clean -xdf .cache .turbo",
     "clean:all": "pnpm clean && git clean -xdf node_modules",

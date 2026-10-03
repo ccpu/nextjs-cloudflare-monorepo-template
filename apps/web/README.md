@@ -68,7 +68,7 @@ The app includes a comprehensive theme system built with `next-themes`:
 - **Dark Mode** - Comfortable for low-light environments
 - **System Mode** - Automatically follows your OS preference
 - **Persistent** - Remembers your choice across sessions
-- **Configurable** - Can be enabled/disabled via `theme` in `packages/configs/app-config-public.js`
+- **Configurable** - Can be enabled/disabled via `theme` in `packages/configs/src/app-config-public.js`
 
 Toggle between themes using the button in the bottom-right corner, or cycle through Light → Dark → System modes.
 

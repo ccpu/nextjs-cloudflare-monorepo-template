@@ -1,9 +1,9 @@
-import { siteBaseUrls } from '../public-urls';
+import { siteBaseUrls } from '../src/public-urls';
 
 async function loadAppConfig(nodeEnv: string) {
   vi.stubEnv('NODE_ENV', nodeEnv);
   vi.resetModules();
-  const { appConfig } = await import('../app-config-public');
+  const { appConfig } = await import('../src/app-config-public');
   return appConfig;
 }
 

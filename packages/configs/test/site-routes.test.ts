@@ -1,4 +1,9 @@
-import { indexablePaths, isPublicPath, matchRoute, sitemapExclude } from '../site-routes';
+import {
+  indexablePaths,
+  isPublicPath,
+  matchRoute,
+  sitemapExclude,
+} from '../src/site-routes';
 
 describe('matchRoute', () => {
   it('should match a route by its exact path', () => {

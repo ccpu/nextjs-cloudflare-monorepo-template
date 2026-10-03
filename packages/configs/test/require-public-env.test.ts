@@ -1,4 +1,4 @@
-import { assertPublicEnv, getMissingPublicEnv } from '../require-public-env';
+import { assertPublicEnv, getMissingPublicEnv } from '../src/require-public-env';
 
 const names = ['API_URL', 'API_KEY'];
 
