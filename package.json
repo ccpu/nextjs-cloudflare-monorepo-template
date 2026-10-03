@@ -50,7 +50,6 @@
     "@commitlint/cli": "catalog:tooling",
     "@commitlint/config-conventional": "catalog:tooling",
     "@internal/prettier-config": "workspace:*",
-    "@pixpilot/workspace-package-generator": "catalog:pixpilot",
     "@turbo/gen": "catalog:tooling",
     "@vitest/coverage-v8": "catalog:testing",
     "@vitest/ui": "catalog:testing",

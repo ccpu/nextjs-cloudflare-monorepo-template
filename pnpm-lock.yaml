@@ -50,9 +50,6 @@ catalogs:
     '@pixpilot/next-test-utils':
       specifier: ^1.1.0
       version: 1.1.0
-    '@pixpilot/workspace-package-generator':
-      specifier: ^2.1.2
-      version: 2.1.2
   react:
     '@types/react':
       specifier: ^19.3.0
@@ -166,9 +163,6 @@ importers:
       '@internal/prettier-config':
         specifier: workspace:*
         version: link:tooling/prettier
-      '@pixpilot/workspace-package-generator':
-        specifier: catalog:pixpilot
-        version: 2.1.2
       '@turbo/gen':
         specifier: catalog:tooling
         version: 2.11.2(@types/node@26.6.2)
@@ -2084,18 +2078,6 @@ packages:
   '@keyv/serialize@1.1.1':
     resolution: {integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==}
 
-  '@manypkg/find-root@3.1.0':
-    resolution: {integrity: sha512-BcSqCyKhBVZ5YkSzOiheMCV41kqAFptW6xGqYSTjkVTl9XQpr+pqHhwgGCOHQtjDCv7Is6EFyA14Sm5GVbVABA==}
-    engines: {node: '>=20.0.0'}
-
-  '@manypkg/get-packages@3.1.0':
-    resolution: {integrity: sha512-0TbBVyvPrP7xGYBI/cP8UP+yl/z+HtbTttAD7FMAJgn/kXOTwh5/60TsqP9ZYY710forNfyV0N8P/IE/ujGZJg==}
-    engines: {node: '>=20.0.0'}
-
-  '@manypkg/tools@2.1.0':
-    resolution: {integrity: sha512-0FOIepYR4ugPYaHwK7hDeHDkfPOBVvayt9QpvRbi2LT/h2b0GaE/gM9Gag7fsnyYyNaTZ2IGyOuVg07IYepvYQ==}
-    engines: {node: '>=20.0.0'}
-
   '@next/env@13.5.11':
     resolution: {integrity: sha512-fbb2C7HChgM7CemdCY+y3N1n8pcTKdqtQLbC7/EQtPdLvlMUT9JX/dBYl8MMZAtYG4uVMyPFHXckb68q/NRwqg==}
 
@@ -2332,10 +2314,6 @@ packages:
 
   '@pixpilot/next-test-utils@1.1.0':
     resolution: {integrity: sha512-S6Pe4Vt+1ObEzH1vi374bmEtupywKlhwymVz9m2tGa4FPiaOobXo1bc3jqikCKZzhmTa7w6jhsEKUHe6j7FliA==}
-
-  '@pixpilot/workspace-package-generator@2.1.2':
-    resolution: {integrity: sha512-3w/3XGWgpMLH3lw1RyouDzzu4lXZMh+3cKs/rcrGbG7PU43lnQ10rPYivThMUPZ7O7cHrsYytjgWWcjf1sUSLg==}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -4418,9 +4396,6 @@ packages:
   jiti@2.7.0:
     resolution: {integrity: sha512-AC/7JofJvZGrrneWNaEnJeOLUx+JlGt7tNa0wZiRPT4MY1wmfKjt2+6O2p2uz2+skll8OZZmJMNqeke7kKbNgQ==}
     hasBin: true
-
-  jju@1.4.0:
-    resolution: {integrity: sha512-8wb9Yw966OSxApiCt0K3yNJL8pnNeIv+OEq2YMidz4FKP6nonSRoOXc80iXY4JaN2FC11B9qsNmDsm+ZOfMROA==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -7724,21 +7699,6 @@ snapshots:
 
   '@keyv/serialize@1.1.1': {}
 
-  '@manypkg/find-root@3.1.0':
-    dependencies:
-      '@manypkg/tools': 2.1.0
-
-  '@manypkg/get-packages@3.1.0':
-    dependencies:
-      '@manypkg/find-root': 3.1.0
-      '@manypkg/tools': 2.1.0
-
-  '@manypkg/tools@2.1.0':
-    dependencies:
-      jju: 1.4.0
-      js-yaml: 4.1.0
-      tinyglobby: 0.2.17
-
   '@next/env@13.5.11': {}
 
   '@next/env@16.3.7': {}
@@ -8038,13 +7998,6 @@ snapshots:
   '@pixpilot/next-security-headers@0.3.0': {}
 
   '@pixpilot/next-test-utils@1.1.0': {}
-
-  '@pixpilot/workspace-package-generator@2.1.2':
-    dependencies:
-      '@manypkg/find-root': 3.1.0
-      '@manypkg/get-packages': 3.1.0
-      change-case: 5.4.4
-      yaml: 2.9.1
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -10424,8 +10377,6 @@ snapshots:
       '@isaacs/cliui': 8.0.2
 
   jiti@2.7.0: {}
-
-  jju@1.4.0: {}
 
   js-tokens@4.0.0: {}
 

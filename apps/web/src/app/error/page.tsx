@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { createPageMetadata } from '../../../lib/page-metadata';
+import { createPageMetadata } from '../../lib/page-metadata';
 
 export const metadata = {
   ...createPageMetadata({
