@@ -62,9 +62,9 @@ catalogs:
   pixpilot:
     '@pixpilot/dev-config': ^3.22.1
     '@pixpilot/env': ^1.3.0
-    '@pixpilot/eslint-config': ^3.0.0
-    '@pixpilot/eslint-config-next': ^1.0.0
-    '@pixpilot/eslint-config-react': ^0.10.1
+    '@pixpilot/eslint-config': ^3.1.0
+    '@pixpilot/eslint-config-next': ^1.0.1
+    '@pixpilot/eslint-config-react': ^0.10.2
     '@pixpilot/next-env': ^0.4.0
     '@pixpilot/next-security-headers': ^0.3.0
     '@pixpilot/next-test-utils': ^1.1.0

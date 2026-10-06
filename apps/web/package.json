@@ -46,6 +46,7 @@
     "@pixpilot/next-security-headers": "catalog:pixpilot",
     "@pixpilot/next-test-utils": "catalog:pixpilot",
     "@tailwindcss/postcss": "catalog:styling",
+    "@testing-library/react": "catalog:testing",
     "@types/node": "catalog:tooling",
     "@types/react": "catalog:react",
     "@types/react-dom": "catalog:react",

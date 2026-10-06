@@ -2,6 +2,6 @@ import reactConfig from '@pixpilot/eslint-config-react';
 import commonConfig from './common.mjs';
 
 // eslint-disable-next-line antfu/no-top-level-await
-const eslintConfig = await reactConfig({ turbo: true },...commonConfig);
+const eslintConfig = await reactConfig({ turbo: true }, ...commonConfig);
 
 export default eslintConfig;
