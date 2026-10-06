@@ -25,25 +25,12 @@ const baseConfig = await defineConfig(
   // { ignores: ['**/*.config.*'] },
   {
     files: ['**/*.js', '**/*.ts', '**/*.tsx'],
-    plugins: {
-      turbo: turboPlugin,
-    },
     rules: {
       ...recommendedTurboRules,
-      'no-restricted-imports': [
-        'error',
-        {
-          name: 'zod',
-          message: "Use `import { z } from 'zod/v4'` instead to ensure v4.",
-        },
-      ],
     },
   },
   ...commonConfig,
 );
 
-/**
- * All packages that leverage t3-env should use this rule
- */
 /** @type {Awaited<import('eslint').Linter.Config[]>} */
 export default baseConfig;
