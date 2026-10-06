@@ -1,7 +1,7 @@
 {
   "name": "nextjs-cloudflare-monorepo-template",
   "private": true,
-  "packageManager": "pnpm@10.34.5",
+  "packageManager": "pnpm@10.34.6",
   "description": "A production-ready Next.js 16 monorepo template with Cloudflare Workers deployment, TypeScript, Tailwind CSS, and Turborepo for fast development and edge deployment.",
   "keywords": [
     "nextjs",
