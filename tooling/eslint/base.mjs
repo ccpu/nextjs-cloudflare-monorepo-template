@@ -1,6 +1,7 @@
 import defineConfig from '@pixpilot/eslint-config';
 import commonConfig from './common.mjs';
 
+/** @type {Awaited<import('eslint').Linter.Config[]>} */
 // eslint-disable-next-line antfu/no-top-level-await
 const baseConfig = await defineConfig(
   {
@@ -17,5 +18,4 @@ const baseConfig = await defineConfig(
   ...commonConfig,
 );
 
-/** @type {Awaited<import('eslint').Linter.Config[]>} */
 export default baseConfig;
