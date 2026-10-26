@@ -3,6 +3,7 @@ import { appConfig } from '@internal/configs';
 
 import { cn } from '@internal/utils';
 import { Geist, Geist_Mono } from 'next/font/google';
+import { NextThemesNamePolyfill } from '../components/theme/NextThemesNamePolyfill';
 import { ThemeProvider } from '../components/ThemeProvider';
 
 import { metadata as siteMetadata } from './metadata';
@@ -35,23 +36,7 @@ export default function RootLayout({
     >
       <head>
         <meta name="darkreader" content="NO-DARKREADER-PLUGIN" />
-        <script
-          // eslint-disable-next-line react/dom-no-dangerously-set-innerhtml
-          dangerouslySetInnerHTML={{
-            // https://github.com/pacocoursey/next-themes/issues/349
-            __html: `
-              // Polyfill for __name function used by next-themes
-              if (typeof __name === 'undefined') {
-                window.__name = function(fn, name) {
-                  if (fn && typeof fn === 'function') {
-                    Object.defineProperty(fn, 'name', { value: name, configurable: true });
-                  }
-                  return fn;
-                };
-              }
-            `,
-          }}
-        />
+        <NextThemesNamePolyfill />
       </head>
       <body className="bg-background text-foreground antialiased">
         <ThemeProvider

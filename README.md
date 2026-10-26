@@ -31,10 +31,11 @@ cd nextjs-cloudflare-monorepo-template
 pnpm run setup
 ```
 
-This is a one-time step. Until `pnpm run setup` has run, `pnpm install` prints a
-reminder and `git commit` is blocked. Setup ends by deleting the `setup/` folder,
-so the gate removes itself. It is skipped in CI, in this template repo itself, and
-with `SKIP_SETUP_CHECK=1`.
+This is a one-time step. Until `pnpm run setup` has run, `pnpm install` is blocked
+before dependencies are installed, and `git commit` is blocked. Run `pnpm run setup`
+first. Setup removes both guards and deletes the `setup/` folder, so the gate
+removes itself. It is skipped in CI, in this template repo itself, and with
+`SKIP_SETUP_CHECK=1`.
 
 ### 2. Development
 
