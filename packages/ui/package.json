@@ -27,12 +27,12 @@
     "@internal/prettier-config": "workspace:*",
     "@internal/tsconfig": "workspace:*",
     "@internal/vitest-config": "workspace:*",
-    "@pixpilot/dev-config": "catalog:pixpilot",
+    "@pixpilot/dev-config": "catalog:config",
     "@types/react": "catalog:react",
-    "eslint": "catalog:tooling",
-    "prettier": "catalog:tooling",
+    "eslint": "catalog:lint",
+    "prettier": "catalog:format",
     "react": "catalog:react",
-    "typescript": "catalog:tooling"
+    "typescript": "catalog:typescript"
   },
   "prettier": "@internal/prettier-config"
 }

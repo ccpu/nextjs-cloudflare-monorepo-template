@@ -5,6 +5,19 @@ settings:
   excludeLinksFromLockfile: false
 
 catalogs:
+  build:
+    '@turbo/gen':
+      specifier: ^2.11.7
+      version: 2.11.7
+    jiti:
+      specifier: ^2.7.0
+      version: 2.7.0
+    tsx:
+      specifier: ^4.23.15
+      version: 4.23.15
+    turbo:
+      specifier: ^2.11.7
+      version: 2.11.7
   cloudflare:
     '@cloudflare/workers-types':
       specifier: ^5.20261006.1
@@ -12,26 +25,35 @@ catalogs:
     wrangler:
       specifier: ^4.147.0
       version: 4.148.0
-  next:
-    '@opennextjs/cloudflare':
-      specifier: ^1.20.8
-      version: 1.20.8
-    next:
-      specifier: 16.3.7
-      version: 16.3.7
-    next-sitemap:
-      specifier: ^4.2.3
-      version: 4.2.3
-    next-themes:
-      specifier: ^0.4.6
-      version: 0.4.6
-  pixpilot:
+  config:
     '@pixpilot/dev-config':
       specifier: ^3.22.1
       version: 3.22.1
+  env:
     '@pixpilot/env':
       specifier: ^1.4.0
       version: 1.4.0
+    '@pixpilot/next-env':
+      specifier: ^0.4.0
+      version: 0.4.0
+  format:
+    prettier:
+      specifier: ^3.9.9
+      version: 3.9.9
+  git:
+    '@commitlint/cli':
+      specifier: ^19.8.1
+      version: 19.8.1
+    '@commitlint/config-conventional':
+      specifier: ^19.8.1
+      version: 19.8.1
+    husky:
+      specifier: ^9.1.7
+      version: 9.1.7
+    lint-staged:
+      specifier: ^16.4.0
+      version: 16.4.0
+  lint:
     '@pixpilot/eslint-config':
       specifier: ^3.1.0
       version: 3.1.0
@@ -41,15 +63,28 @@ catalogs:
     '@pixpilot/eslint-config-react':
       specifier: ^0.10.2
       version: 0.10.2
-    '@pixpilot/next-env':
-      specifier: ^0.4.0
-      version: 0.4.0
+    eslint:
+      specifier: ^10.12.0
+      version: 10.12.0
+    eslint-plugin-turbo:
+      specifier: ^2.11.7
+      version: 2.11.7
+  next:
+    '@opennextjs/cloudflare':
+      specifier: ^1.20.8
+      version: 1.20.8
     '@pixpilot/next-security-headers':
       specifier: ^0.3.0
       version: 0.3.0
-    '@pixpilot/next-test-utils':
-      specifier: ^1.1.0
-      version: 1.1.0
+    next:
+      specifier: 16.3.7
+      version: 16.3.7
+    next-sitemap:
+      specifier: ^4.2.3
+      version: 4.2.3
+    next-themes:
+      specifier: ^0.4.6
+      version: 0.4.6
   react:
     '@types/react':
       specifier: ^19.3.0
@@ -83,6 +118,9 @@ catalogs:
       specifier: ^2.1.0
       version: 2.1.0
   testing:
+    '@pixpilot/next-test-utils':
+      specifier: ^1.1.0
+      version: 1.1.0
     '@testing-library/dom':
       specifier: ^10.4.2
       version: 10.4.2
@@ -104,40 +142,6 @@ catalogs:
     vitest:
       specifier: ^3.2.7
       version: 3.2.7
-  tooling:
-    '@commitlint/cli':
-      specifier: ^19.8.1
-      version: 19.8.1
-    '@commitlint/config-conventional':
-      specifier: ^19.8.1
-      version: 19.8.1
-    '@turbo/gen':
-      specifier: ^2.11.7
-      version: 2.11.7
-    eslint:
-      specifier: ^10.12.0
-      version: 10.12.0
-    eslint-plugin-turbo:
-      specifier: ^2.11.7
-      version: 2.11.7
-    husky:
-      specifier: ^9.1.7
-      version: 9.1.7
-    jiti:
-      specifier: ^2.7.0
-      version: 2.7.0
-    lint-staged:
-      specifier: ^16.4.0
-      version: 16.4.0
-    prettier:
-      specifier: ^3.9.9
-      version: 3.9.9
-    tsx:
-      specifier: ^4.23.15
-      version: 4.23.15
-    turbo:
-      specifier: ^2.11.7
-      version: 2.11.7
   validation:
     zod:
       specifier: 4.6.5
@@ -155,16 +159,16 @@ importers:
         specifier: catalog:cloudflare
         version: 5.20261006.1
       '@commitlint/cli':
-        specifier: catalog:tooling
+        specifier: catalog:git
         version: 19.8.1(@types/node@26.6.2)(typescript@6.0.3)
       '@commitlint/config-conventional':
-        specifier: catalog:tooling
+        specifier: catalog:git
         version: 19.8.1
       '@internal/prettier-config':
         specifier: workspace:*
         version: link:tooling/prettier
       '@turbo/gen':
-        specifier: catalog:tooling
+        specifier: catalog:build
         version: 2.11.7(@types/node@26.6.2)
       '@vitest/coverage-v8':
         specifier: catalog:testing
@@ -173,19 +177,19 @@ importers:
         specifier: catalog:testing
         version: 3.2.7(vitest@3.2.7)
       husky:
-        specifier: catalog:tooling
+        specifier: catalog:git
         version: 9.1.7
       lint-staged:
-        specifier: catalog:tooling
+        specifier: catalog:git
         version: 16.4.0
       prettier:
-        specifier: catalog:tooling
+        specifier: catalog:format
         version: 3.9.9
       tsx:
-        specifier: catalog:tooling
+        specifier: catalog:build
         version: 4.23.15
       turbo:
-        specifier: catalog:tooling
+        specifier: catalog:build
         version: 2.11.7
       typescript:
         specifier: ^6.0.3
@@ -243,16 +247,16 @@ importers:
         specifier: workspace:*
         version: link:../../tooling/vitest
       '@pixpilot/env':
-        specifier: catalog:pixpilot
+        specifier: catalog:env
         version: 1.4.0
       '@pixpilot/next-env':
-        specifier: catalog:pixpilot
+        specifier: catalog:env
         version: 0.4.0
       '@pixpilot/next-security-headers':
-        specifier: catalog:pixpilot
+        specifier: catalog:next
         version: 0.3.0
       '@pixpilot/next-test-utils':
-        specifier: catalog:pixpilot
+        specifier: catalog:testing
         version: 1.1.0
       '@tailwindcss/postcss':
         specifier: catalog:styling
@@ -273,13 +277,13 @@ importers:
         specifier: catalog:styling
         version: 10.6.1(postcss@8.5.28)
       jiti:
-        specifier: catalog:tooling
+        specifier: catalog:build
         version: 2.7.0
       next-sitemap:
         specifier: catalog:next
         version: 4.2.3(next@16.3.7(@types/node@24.19.1)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
       prettier:
-        specifier: catalog:tooling
+        specifier: catalog:format
         version: 3.9.9
       tailwindcss:
         specifier: catalog:styling
@@ -306,10 +310,10 @@ importers:
         specifier: workspace:*
         version: link:../../tooling/vitest
       eslint:
-        specifier: catalog:tooling
+        specifier: catalog:lint
         version: 10.12.0(jiti@2.7.0)
       prettier:
-        specifier: catalog:tooling
+        specifier: catalog:format
         version: 3.9.9
       typescript:
         specifier: ^6.0.3
@@ -328,7 +332,7 @@ importers:
         specifier: workspace:*
         version: link:../../tooling/prettier
       prettier:
-        specifier: catalog:tooling
+        specifier: catalog:format
         version: 3.9.9
 
   packages/ui:
@@ -350,16 +354,16 @@ importers:
         specifier: workspace:*
         version: link:../../tooling/vitest
       '@pixpilot/dev-config':
-        specifier: catalog:pixpilot
+        specifier: catalog:config
         version: 3.22.1
       '@types/react':
         specifier: catalog:react
         version: 19.3.0
       eslint:
-        specifier: catalog:tooling
+        specifier: catalog:lint
         version: 10.12.0(jiti@2.7.0)
       prettier:
-        specifier: catalog:tooling
+        specifier: catalog:format
         version: 3.9.9
       react:
         specifier: catalog:react
@@ -390,10 +394,10 @@ importers:
         specifier: workspace:*
         version: link:../../tooling/vitest
       eslint:
-        specifier: catalog:tooling
+        specifier: catalog:lint
         version: 10.12.0(jiti@2.7.0)
       prettier:
-        specifier: catalog:tooling
+        specifier: catalog:format
         version: 3.9.9
       typescript:
         specifier: ^6.0.3
@@ -402,16 +406,16 @@ importers:
   tooling/eslint:
     dependencies:
       '@pixpilot/eslint-config':
-        specifier: catalog:pixpilot
+        specifier: catalog:lint
         version: 3.1.0(@eslint-react/eslint-plugin@5.20.2(eslint@10.12.0(jiti@2.7.0))(typescript@6.0.3))(@next/eslint-plugin-next@15.5.25)(@typescript-eslint/typescript-estree@8.70.0(typescript@6.0.3))(@typescript-eslint/utils@8.70.0(eslint@10.12.0(jiti@2.7.0))(typescript@6.0.3))(eslint-plugin-jsx-a11y@6.10.2(eslint@10.12.0(jiti@2.7.0)))(eslint-plugin-react-refresh@0.5.7(eslint@10.12.0(jiti@2.7.0)))(eslint-plugin-turbo@2.11.7(eslint@10.12.0(jiti@2.7.0))(turbo@2.11.7))(eslint@10.12.0(jiti@2.7.0))(ts-declaration-location@1.0.7(typescript@6.0.3))(typescript@6.0.3)(vitest@3.2.7)
       '@pixpilot/eslint-config-next':
-        specifier: catalog:pixpilot
+        specifier: catalog:lint
         version: 1.0.1(@typescript-eslint/typescript-estree@8.70.0(typescript@6.0.3))(@typescript-eslint/utils@8.70.0(eslint@10.12.0(jiti@2.7.0))(typescript@6.0.3))(eslint-plugin-turbo@2.11.7(eslint@10.12.0(jiti@2.7.0))(turbo@2.11.7))(eslint@10.12.0(jiti@2.7.0))(ts-declaration-location@1.0.7(typescript@6.0.3))(typescript@6.0.3)(vitest@3.2.7)
       '@pixpilot/eslint-config-react':
-        specifier: catalog:pixpilot
+        specifier: catalog:lint
         version: 0.10.2(@next/eslint-plugin-next@15.5.25)(@typescript-eslint/typescript-estree@8.70.0(typescript@6.0.3))(@typescript-eslint/utils@8.70.0(eslint@10.12.0(jiti@2.7.0))(typescript@6.0.3))(eslint-plugin-turbo@2.11.7(eslint@10.12.0(jiti@2.7.0))(turbo@2.11.7))(eslint@10.12.0(jiti@2.7.0))(ts-declaration-location@1.0.7(typescript@6.0.3))(typescript@6.0.3)(vitest@3.2.7)
       eslint-plugin-turbo:
-        specifier: catalog:tooling
+        specifier: catalog:lint
         version: 2.11.7(eslint@10.12.0(jiti@2.7.0))(turbo@2.11.7)
     devDependencies:
       '@internal/prettier-config':
@@ -421,10 +425,10 @@ importers:
         specifier: workspace:*
         version: link:../typescript
       eslint:
-        specifier: catalog:tooling
+        specifier: catalog:lint
         version: 10.12.0(jiti@2.7.0)
       prettier:
-        specifier: catalog:tooling
+        specifier: catalog:format
         version: 3.9.9
       typescript:
         specifier: ^6.0.3
@@ -433,7 +437,7 @@ importers:
   tooling/prettier:
     dependencies:
       prettier:
-        specifier: catalog:tooling
+        specifier: catalog:format
         version: 3.9.9
       prettier-plugin-tailwindcss:
         specifier: ^0.6.14
@@ -443,7 +447,7 @@ importers:
         specifier: workspace:*
         version: link:../typescript
       '@pixpilot/dev-config':
-        specifier: catalog:pixpilot
+        specifier: catalog:config
         version: 3.22.1
       '@types/node':
         specifier: ^24.19.1
@@ -455,7 +459,7 @@ importers:
   tooling/typescript:
     devDependencies:
       '@pixpilot/dev-config':
-        specifier: catalog:pixpilot
+        specifier: catalog:config
         version: 3.22.1
 
   tooling/vitest:
@@ -467,7 +471,7 @@ importers:
         specifier: workspace:*
         version: link:../typescript
       '@pixpilot/dev-config':
-        specifier: catalog:pixpilot
+        specifier: catalog:config
         version: 3.22.1
       '@testing-library/dom':
         specifier: catalog:testing
@@ -482,7 +486,7 @@ importers:
         specifier: catalog:testing
         version: 3.2.7(vitest@3.2.7)
       eslint:
-        specifier: catalog:tooling
+        specifier: catalog:lint
         version: 10.12.0(jiti@2.7.0)
       jsdom:
         specifier: catalog:testing

@@ -13,14 +13,14 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "prettier": "catalog:tooling",
+    "prettier": "catalog:format",
     "prettier-plugin-tailwindcss": "^0.6.14"
   },
   "devDependencies": {
     "@internal/tsconfig": "workspace:*",
-    "@pixpilot/dev-config": "catalog:pixpilot",
-    "@types/node": "catalog:tooling",
-    "typescript": "catalog:tooling"
+    "@pixpilot/dev-config": "catalog:config",
+    "@types/node": "catalog:typescript",
+    "typescript": "catalog:typescript"
   },
   "prettier": "@internal/prettier-config"
 }
