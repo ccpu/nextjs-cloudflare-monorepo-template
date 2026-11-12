@@ -111,9 +111,13 @@ apps/web/public/robots.txt
 apps/web/public/sitemap.xml
 
 # -----------------------------
-# Cloudflare/Nitro/Vercel
+# Cloudflare Wrangler (local dev/test state, regenerated)
 # -----------------------------
-.wrangler
+.wrangler/
+
+# -----------------------------
+# Nitro/Vercel
+# -----------------------------
 .nitro/
 .output/
 .vercel

@@ -19,7 +19,7 @@
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
     "start": "pnpm with-env node ./scripts/next.mjs start",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "with-env": "node ./run-with-root-env.mjs",
     "prepare": "husky"
   },
