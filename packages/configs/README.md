@@ -2,7 +2,7 @@
 
 Centralized, framework-agnostic configuration shared by every app in the workspace (the Next.js site, a browser extension, build scripts).
 
-Plain JavaScript with hand-written `.d.ts` files in `src/`, so build tools such as `next-sitemap.config.js` can import it without a compile step.
+Plain JavaScript with hand-written `.d.ts` files in `src/`, so build tools such as `next-sitemap.config.cjs` can import it without a compile step.
 
 ## Entry points
 

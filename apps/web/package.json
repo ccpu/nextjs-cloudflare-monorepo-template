@@ -1,11 +1,12 @@
 {
   "name": "web",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "build": "pnpm with-env next build",
-    "postbuild": "next-sitemap",
-    "sitemap": "next-sitemap",
+    "postbuild": "next-sitemap --config next-sitemap.config.cjs",
+    "sitemap": "next-sitemap --config next-sitemap.config.cjs",
     "validate:domain": "node ./scripts/validate-custom-domain.mjs",
     "deploy": "pnpm validate:domain && opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",

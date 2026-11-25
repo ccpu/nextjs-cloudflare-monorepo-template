@@ -29,7 +29,7 @@ This app uses `next-sitemap` to automatically generate:
 - `sitemap.xml` - Contains all discoverable routes
 - `robots.txt` - Search engine crawling rules
 
-The sitemap is automatically generated during the build process, or can be generated manually with `pnpm sitemap`. Configuration is in `next-sitemap.config.js`.
+The sitemap is automatically generated during the build process, or can be generated manually with `pnpm sitemap`. Configuration is in `next-sitemap.config.cjs`.
 
 ## Routes
 
@@ -56,7 +56,7 @@ src/
 
 - `@internal/configs` (`packages/configs`) - Shared app config, route manifest and env checks
 - `run-with-root-env.mjs` - Runs a command with the repository-root `.env.local` and `.env` loaded (`pnpm with-env <cmd>`)
-- `next-sitemap.config.js` - Sitemap generation configuration
+- `next-sitemap.config.cjs` - Sitemap generation configuration
 - `next.config.ts` - Next.js configuration with Cloudflare Workers support
 - `wrangler.jsonc` - Cloudflare Workers configuration with a placeholder custom domain that must be replaced before deployment
 
