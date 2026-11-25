@@ -8,8 +8,9 @@ const setupFilePath = resolve(currentDir, 'react.setup.ts');
 
 export default defineConfig({
   coverageOnCI: false,
-  esbuild: {
-    jsx: 'automatic',
+  // Next.js needs `jsx: preserve` in tsconfig.json; tests compile JSX here.
+  oxc: {
+    jsx: { runtime: 'automatic' },
   },
   test: {
     environment: 'jsdom',

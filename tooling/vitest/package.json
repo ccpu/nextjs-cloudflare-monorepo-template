@@ -37,6 +37,7 @@
     "@vitest/coverage-v8": "catalog:testing",
     "eslint": "catalog:lint",
     "jsdom": "catalog:testing",
+    "vite": "catalog:testing",
     "vitest": "catalog:testing"
   },
   "prettier": "@internal/prettier-config"
