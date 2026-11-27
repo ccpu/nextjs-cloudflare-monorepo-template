@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { assertPublicEnv, getMissingPublicEnv } from '../src/require-public-env';
 
 const names = ['API_URL', 'API_KEY'];

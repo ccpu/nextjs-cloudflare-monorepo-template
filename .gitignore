@@ -99,7 +99,6 @@ tooling/**/.env.*
 .parcel-cache
 .next
 .nuxt
-public
 .vuepress/dist
 **/*.cache
 **/.cache*
